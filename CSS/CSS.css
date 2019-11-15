@@ -15,11 +15,6 @@ html{
     margin: 0 !important;
     padding: 0 !important;
 }
-#partes {
-    display: flex;
-    justify-content: space-between  !important;
-    width: 100%;
-}
 
 h1 {
     font-size: 1.2rem;
@@ -45,6 +40,28 @@ h3 {
     border-color: #ff90b5;
     margin-top: 1rem;
 }
+.label {
+    color: #fff;
+    background-color: #ff90b5;
+    border-color: #ff90b5;
+    margin: 0;
+    margin-top: 1rem;
+    display: inline-block;
+    font-weight: 400;
+    text-align: center;
+    vertical-align: middle;
+    border: 1px solid transparent;
+    padding: .375rem .75rem;
+    font-size: 1rem;
+    line-height: 1.5;
+    align-items: flex-start;
+    box-sizing: border-box;
+}
+.parte {
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+}
 
 #collection {
     width: 100%;
@@ -56,28 +73,23 @@ h3 {
     justify-content: center;
     align-items:center;
 }
+#partes {
+    justify-content: center;
+    align-items:center;
+}
 
 #uno {
     background: url(../Images/5.jpg);
     background-position: center;
     background-size: cover;
-    display: flex;
-    justify-content: center;
-    align-items:center;
 }
 #dos {
     background: url(../Images/6.jpg);
     background-position: center;
     background-size: cover;
-    display: flex;
-    justify-content: center;
-    align-items:center;
 }
 #tres {
     background: url(../Images/7.jpg);
     background-position: center;
     background-size: cover;
-    display: flex;
-    justify-content: center;
-    align-items:center;
 }
