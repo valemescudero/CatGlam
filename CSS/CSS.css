@@ -15,6 +15,11 @@ html{
     margin: 0 !important;
     padding: 0 !important;
 }
+#partes {
+    display: flex;
+    justify-content: space-between  !important;
+    width: 100%;
+}
 
 h1 {
     font-size: 1.2rem;
@@ -52,12 +57,6 @@ h3 {
     align-items:center;
 }
 
-#partes {
-    justify-content: space-evenly;
-    align-content: center;
-    text-align: center;
-    margin-top: 1rem;
-}
 #uno {
     background: url(../Images/5.jpg);
     background-position: center;
