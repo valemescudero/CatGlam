@@ -8,12 +8,6 @@ html{
     
     font-size: 100%;
 }
-@media (min-width: 767px) {
-    .text-md-left { text-align: left; }
-    .text-md-right { text-align: right; }
-    .text-md-center { text-align: center; }
-    .text-md-justify { text-align: justify; }
-  }
 .navbar {
     padding: 1rem 1rem;
 }
@@ -51,7 +45,6 @@ ul {
     margin-block-end: 1em;
     margin-inline-start: 0px;
     margin-inline-end: 0px;
-    padding-inline-start: 40px;
 }
 .btn-pink {
     color: #fff;
@@ -108,26 +101,33 @@ ul {
     flex-wrap: wrap;
 }
 footer {
-  width: 100%;
-  height: auto;
-  padding:2%;
-  display: flex;
-  flex-wrap: wrap;
+    width: 100%;
+    height: auto;
+    padding:2%;
+    display: flex;
+    flex-wrap: wrap;
+}
+.location {
+    text-align: left !important;
+    white-space: nowrap!important;
+}
+.social {
+    text-align: center !important;
 }
 
+@media only screen and (max-width: 1039px) {
+.social {
+    text-align: right !important;
+}
+}
 @media only screen and (max-width: 991px) {
-.social, .social a {
-    height: auto;
-    text-align: left !important;
-    font-size: 0.9rem;
-}
-}
+    .social {
+        height: auto;
+        padding-inline-end: 1rem;
+    }
+    }
 @media only screen and (max-width: 767px) {
-.social, .social a {
+    .location, .social {
     text-align: center !important;
-    font-size: 1rem;
-}
-ul {
-    padding-inline-start: 1rem;
-}
-}
+    }
+    }
