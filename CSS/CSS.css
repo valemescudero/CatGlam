@@ -71,6 +71,9 @@ a {
     color: #fff;
     text-decoration: none;
 }
+.label:hover {
+    background-color: #ff90b5;
+}
 
 #collection {
     width: 100%;
