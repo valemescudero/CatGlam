@@ -34,11 +34,22 @@ h3 {
     text-transform: uppercase;
     margin-bottom: 1rem;
 }
+a {
+    text-decoration: none;
+}
 .btn-pink {
     color: #fff;
     background-color: #ff90b5;
     border-color: #ff90b5;
     margin-top: 1rem;
+}
+.parte {
+	justify-content: center;
+	align-items: center;
+	background-repeat: no-repeat;
+	background-size: cover;
+    background-position: center center;
+    margin-bottom: 0.7rem;
 }
 .label {
     color: #fff;
@@ -56,10 +67,9 @@ h3 {
     box-sizing: border-box;
     width: 50%;
 }
-.parte {
-    display: flex;
-    justify-content: center;
-    align-items: flex-end;
+.label a {
+    color: #fff;
+    text-decoration: none;
 }
 
 #collection {
@@ -72,11 +82,10 @@ h3 {
     justify-content: center;
     align-items:center;
 }
-#partes {
-    justify-content: center;
-    align-items:center;
+#partes{
+    display: flex;
+    flex-wrap: wrap;
 }
-
 #uno {
     background: url(../Images/5.jpg);
     background-position: center;
