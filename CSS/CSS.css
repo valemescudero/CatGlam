@@ -114,9 +114,20 @@ footer {
   display: flex;
   flex-wrap: wrap;
 }
-@media only screen and (max-width: 767px) {
-.social {
+
+@media only screen and (max-width: 991px) {
+.social, .social a {
     height: auto;
     text-align: left !important;
+    font-size: 0.9rem;
+}
+}
+@media only screen and (max-width: 767px) {
+.social, .social a {
+    text-align: center !important;
+    font-size: 1rem;
+}
+ul {
+    padding-inline-start: 1rem;
 }
 }
