@@ -114,9 +114,3 @@ footer {
   display: flex;
   flex-wrap: wrap;
 }
-@media only screen and (max-width: 767px) {
-.social {
-    height: auto;
-    text-align: left !important;
-}
-}
