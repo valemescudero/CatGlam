@@ -104,6 +104,39 @@
     background-color: #90b3ff;
     border-color: #90b3ff;
   }
+  .gridwrapper {
+    padding: 20px;
+    margin-bottom: 2em;
+    position: relative;
+    max-width: 900px;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 7px;
+    box-sizing: border-box;
+  }
+  .items {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    border-radius: 3px;
+    padding: 20px;
+  }
+  
+  .item {
+    width: 32%;
+    padding-bottom: 32%; /* Same as width, sets height */
+    margin-bottom: 2%;
+    position: relative;
+    border-radius: 3px;
+    background-color: #ff90b5;
+    border: 1px solid #ff90b5;
+    box-sizing: border-box;
+    background-position: center;
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
   #collection {
     width: 100%;
     height: 600px;
