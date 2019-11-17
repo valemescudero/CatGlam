@@ -129,5 +129,16 @@ footer {
 @media only screen and (max-width: 767px) {
     .location, .social {
     text-align: center !important;
+    white-space: normal !important;
+    }
+    }
+@media only screen and (max-width: 627px) {
+    #collections h2 {
+    font-size: 2rem;
+    }
+    }
+@media only screen and (max-width: 469px) {
+    #collections h2 {
+    font-size: 1.5rem;
     }
     }
