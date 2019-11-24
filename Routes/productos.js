@@ -15,8 +15,36 @@ router.get('/', async (req,res) => {
     res.render('productos/productos', {productos})
 })
 
+
+router.get('/:id', (req,res,next)=> {
+    console.log(req.params);
+    res.render('productos/producto')
+    // select * from productos where id = 3
+    // select * from productos where id = 'pepe'
+    // no hay resultados
+    // let obj = [
+    //     { id: 1, nombre: 'Vino', descripcion: 'vino de calidad', precio: 200, stock: 10 },
+    // ]
+    // res.render('productos',{info : obj});
+})
+
+
+
 router.get('/productos/subir', (req, res) => {
     res.render('productos/subirproductos')
+})
+router.get('/:id', (req,res,next)=> {
+    console.log(req.params);
+    // {id : 'numero'}
+    let consulta = "select * from productos where id ="+req.params.id;
+    console.log(consulta);
+    // select * from productos where id = 3
+    // select * from productos where id = 'pepe'
+    // no hay resultados
+    // let obj = [
+    //     { id: 1, nombre: 'Vino', descripcion: 'vino de calidad', precio: 200, stock: 10 },
+    // ]
+    // res.render('productos',{info : obj});
 })
 
 // los datos que manda el front, llega desde el request en el body con los nombres indicados en

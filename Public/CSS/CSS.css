@@ -104,6 +104,52 @@ ul {
   background-color: #90b3ff;
   border-color: #90b3ff;
 }
+.btn-text {
+      line-height: 2rem;
+    font-size: 1rem;
+}
+.btn-circle {
+    width: 2rem;
+    height: 2rem;
+    border-radius: 50%;
+    text-align: center;
+    font-size: 2rem;
+    line-height: 1rem;
+  margin-left: 0.4rem;
+  
+}
+.btn-lila {
+  background-color: #E0B2FF !important;
+}
+.btn-rosa {
+  background-color: #F9B2FF !important;
+}
+.btn-azul {
+  background-color: #3A395C !important;
+}
+.btn-celeste {
+  background-color: #BEB2FF !important;
+}
+.btn-aqua {
+  background-color: #B2F6FF !important;
+}
+.btn-verde {
+  background-color: #B8FFB2 !important;
+}
+.btn-amarillo {
+  background-color: #FFF9B2 !important;
+}
+.btn-durazno {
+  background-color: #FFDCB2 !important;
+}
+.btn-negro {
+  background-color: #131417 !important;
+  color: #fff !important;
+}
+.buy {
+  border-radius: 0 !important;
+  width: 90%;
+}
 .gridwrapper {
   padding: 20px;
   margin-bottom: 2em;
@@ -194,6 +240,9 @@ ul {
   font-weight: 600;
   margin-top: 1rem;
   margin-bottom: 0.2rem !important;
+}
+.producto {
+  width: 100%;
 }
 #collection {
   width: 100%;
