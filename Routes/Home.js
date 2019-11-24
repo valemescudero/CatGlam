@@ -2,14 +2,9 @@ const express = require('express');
 const router = express.Router();
 
 
-router.get("/", async (req,res,next) => {
-    try {
-        var data={ "sarasa": "Sebastián"};
-        res.json(data);
-    } catch (error) {
-        console.log(error);
-        res.sendStatus(500);
-    }
-})
+router.get('/',  (req,res) => {
+    //ya está direccionado a productos por el servidor x eso es '/'
+       res.render('inicio');
+   } );
 
 module.exports = router;

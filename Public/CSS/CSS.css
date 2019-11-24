@@ -39,10 +39,6 @@ h3 {
   text-transform: uppercase;
   margin-bottom: 1rem;
 }
-h4 i {
-  color: grey;
-  font-style: normal !important;
-}
 a {
   text-decoration: none !important;
 }
@@ -108,52 +104,6 @@ ul {
   background-color: #90b3ff;
   border-color: #90b3ff;
 }
-.btn-text {
-      line-height: 2rem;
-    font-size: 1rem;
-}
-.btn-circle {
-    width: 2rem;
-    height: 2rem;
-    border-radius: 50%;
-    text-align: center;
-    font-size: 2rem;
-    line-height: 1rem;
-  margin-left: 0.4rem;
-  
-}
-.btn-lila {
-  background-color: #E0B2FF !important;
-}
-.btn-rosa {
-  background-color: #F9B2FF !important;
-}
-.btn-azul {
-  background-color: #3A395C !important;
-}
-.btn-celeste {
-  background-color: #BEB2FF !important;
-}
-.btn-aqua {
-  background-color: #B2F6FF !important;
-}
-.btn-verde {
-  background-color: #B8FFB2 !important;
-}
-.btn-amarillo {
-  background-color: #FFF9B2 !important;
-}
-.btn-durazno {
-  background-color: #FFDCB2 !important;
-}
-.btn-negro {
-  background-color: #131417 !important;
-  color: #fff !important;
-}
-.buy {
-  border-radius: 0 !important;
-  width: 90%;
-}
 .gridwrapper {
   padding: 20px;
   margin-bottom: 2em;
@@ -174,6 +124,7 @@ ul {
 
 .item {
   width: 32%;
+  height: 0px;
   padding-bottom: 32%; /* Same as width, sets height */
   margin-bottom: 2%;
   position: relative;
@@ -187,14 +138,48 @@ ul {
   justify-content: center;
   align-items: center;
 }
+ 
+.item:hover:before {
+    content: "";
+    display: block;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: rgba(0,0,0, 0.5);
+    z-index:3;
+}  
+.item .sticker {
+  display: none;
+}
+.item:hover .sticker {
+  margin-top: 100%;
+  color: #fff;
+  background-color:transparent;
+  display: inline-block;
+  font-weight: 400;
+  text-align: center;
+  vertical-align: middle;
+  padding: 0.375rem 0.75rem;
+  font-size: 1rem;
+  line-height: 1.2;
+  box-sizing: border-box;
+  width: auto;
+    z-index: 4;
+    position: relative;
+}
+.sticker a {
+  color: #fff;
+}
 .benefit_item {
-    height: 100px;
-    background: #f3f3f3;
-    border-right: solid 1px #fff;
+  height: 100px;
+  background: #f3f3f3;
+  border-right: solid 1px #fff;
 }
 .benefit_icon {
   justify-content: center;
-  align-items: center; 
+  align-items: center;
 }
 .benefit_i {
   width: 2rem;
@@ -208,15 +193,12 @@ ul {
   font-size: 0.8rem;
   font-weight: 600;
   margin-top: 1rem;
-  margin-bottom: .2rem !important;
-}
-.producto {
-  width: 100%;
+  margin-bottom: 0.2rem !important;
 }
 #collection {
   width: 100%;
   height: 600px;
-  background: url(https://github.com/evadnemeraki/CatGlam/blob/master/Images/4.jpg?raw=true);
+  background: url(https://github.com/evadnemeraki/CatGlam/blob/master/Public/Images/4.jpg?raw=true);
   background-position: center;
   background-size: cover;
   display: flex;
@@ -238,6 +220,7 @@ ul {
   background: #ff90b5;
   content: "";
 }
+
 #loginform {
     background: rgba(255,255,255, 0.5);
   padding: 2rem;
@@ -255,9 +238,9 @@ ul {
     height: auto;
     padding-inline-end: 1rem;
   }
-.benefit_col {
+  .benefit_col {
     margin-bottom: 1rem;
-}
+  }
 }
 @media only screen and (max-width: 767px) {
   .location,

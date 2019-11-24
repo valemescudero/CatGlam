@@ -1,6 +1,6 @@
 const express = require('express');
 const exphbs = require('express-handlebars');
-const routesHome = require('./Routes/Home');
+const routesHome = require('./Routes/home');
 const routesProductos = require('./Routes/productos');
 const bodyParser = require('body-parser');
 const morgan = require('morgan'); // Se utiliza para registrar los detalles de las solicitudes (req) de login
