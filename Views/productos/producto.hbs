@@ -1,13 +1,13 @@
   <!-- Container Producto -->
 <div class="detalle container mt-5 mb-5">
+{{#producto}}
   <div class="row justify-content-center">
     <div class="col-md-5">
-      <img class="producto" src="https://instagram.faep5-1.fna.fbcdn.net/vp/a78a5248b668f73635b845c7f7cfc162/5E47EEA2/t51.2885-15/e35/75472274_1603994659752016_5148776086399024308_n.jpg?_nc_ht=instagram.faep5-1.fna.fbcdn.net&_nc_cat"></div>
-
+      <div class="producto" style="background-image:url({{imagen_p}})"></div></div>
     <div class="col-md-5 justify-content-center">
-      <h2>Aros Snake</h2>
-      <h4>$100 - <i>Stock: 3</i></h4>
-      <p class="mt-3">Sonorus nox totalus lumos quodpot. Impedimenta petrificus accio reducto totalus stupefy mortis sonorus evanesco protego sonorus. Engorgio legilimens alohomora leviosa lacarnum serpensortia evanesco wingardium charm impedimenta prior.</p>
+      <h2>{{nombre_p}}</h2>
+      <h4>{{precio_p}}- <i>Stock: {{stock_p}}</i></h4>
+      <p class="mt-3">{{descripcion_p}}.</p>
       <div class="row mt-5 justify-content-center">
         <div class="btn-text mr-3">Elegí el color:</div>
         <button type="button" class="btn btn-rosa btn-circle" data-toggle="button" aria-pressed="false" autocomplete="off">
@@ -22,6 +22,7 @@
       </div>
     </div>
   </div>
+  {{/producto}}
 </div>
 
 <!-- Benefits -->
