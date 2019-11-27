@@ -17,7 +17,8 @@ router.get('/micuenta/registro',  (req,res) => {
 
 // Cliente --> servidor (formulario : method | action)
 router.post('/micuenta/registro', async(req,res,next)=> {
-    // params
+   
+    console.log(req.body); // params
     // /login/1 req.params
 
     // req : Request (todo lo que llega al servidor)
@@ -28,7 +29,7 @@ router.post('/micuenta/registro', async(req,res,next)=> {
     let usuario_u = req.body.usuario;
     let password = req.body.password_u;
     let data = await registro(usuario_u,password);
-    console.log(data);
+    console.log(req.body);
     if(data.length == 1) {
         // permisos_u : nombre del campo
         // [
