@@ -39,6 +39,10 @@ h3 {
   text-transform: uppercase;
   margin-bottom: 1rem;
 }
+i {
+  color: #666;
+  font-size: 0.8rem;
+}
 a {
   text-decoration: none !important;
 }
@@ -176,7 +180,7 @@ ul {
   position: relative;
   border-radius: 3px;
   background-color: #ff90b5;
-  border: 1px solid #ff90b5;
+  border: 2px solid rgb(248, 249, 250);;
   box-sizing: border-box;
   background-position: center;
   background-size: cover;
@@ -254,6 +258,7 @@ ul {
   background-position: center;
   background-size: cover;
   display: flex;
+  flex-wrap: wrap;
   justify-content: center;
   align-items: center;
 }
@@ -271,6 +276,9 @@ ul {
   height: 5px;
   background: #ff90b5;
   content: "";
+}
+#precio {
+  margin-top: 2rem;
 }
 
 #loginform {
@@ -299,6 +307,12 @@ ul {
   .social {
     text-align: center !important;
     white-space: normal !important;
+  }
+  .micuenta {
+    display: none;
+  }
+  .producto {
+    margin-bottom: 2rem;
   }
 }
 @media only screen and (max-width: 627px) {

@@ -2,6 +2,7 @@ const express = require('express');
 const exphbs = require('express-handlebars');
 const routesHome = require('./Routes/home');
 const routesProductos = require('./Routes/productos');
+const routesMicuenta = require('./Routes/micuenta');
 const bodyParser = require('body-parser');
 const morgan = require('morgan'); // Se utiliza para registrar los detalles de las solicitudes (req) de login
 const path = require('path');
@@ -34,6 +35,7 @@ app.use(express.urlencoded({
 //app.use de rutas
 app.use("/", routesHome);
 app.use("/productos", routesProductos); 
+app.use("/", routesMicuenta); 
 
 
 app.listen(port, () => { console.log('listening on port: '+ port)});

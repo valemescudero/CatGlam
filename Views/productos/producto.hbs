@@ -1,13 +1,13 @@
   <!-- Container Producto -->
-<div class="detalle container mt-5 mb-5">
+<div class="detalle container mt-4 mb-5">
 {{#producto}}
   <div class="row justify-content-center">
     <div class="col-md-5">
       <div class="producto" style="background-image:url({{imagen_p}})"></div></div>
     <div class="col-md-5 justify-content-center">
       <h2>{{nombre_p}}</h2>
-      <h4>{{precio_p}}- <i>Stock: {{stock_p}}</i></h4>
-      <p class="mt-3">{{descripcion_p}}.</p>
+      <p class="mt-3">{{descripcion_p}}</p>
+      <h4 id="precio">${{precio_p}} <i>Stock: {{stock_p}}</i></h4>
       <div class="row mt-5 justify-content-center">
         <div class="btn-text mr-3">Elegí el color:</div>
         <button type="button" class="btn btn-rosa btn-circle" data-toggle="button" aria-pressed="false" autocomplete="off">
@@ -26,7 +26,7 @@
 </div>
 
 <!-- Benefits -->
-<div class="container">
+<div class="container mb-4">
   <div class="row no-gutters">
     <div class="col-lg-3 benefit_col">
       <div class="benefit_item d-flex flex-row justify-content-around align-items-center">
