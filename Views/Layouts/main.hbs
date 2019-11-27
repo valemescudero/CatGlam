@@ -53,7 +53,15 @@
               <a class="nav-link" href="/contacto/">Contacto</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="/micuenta/">Mi Cuenta</a>
+                  {{#if isLogged}}
+                  <a href="/micuenta/logout">
+                    Salir
+                  </a>
+                  {{else }}
+                  <a href="/micuenta">
+                    Mi Cuenta
+                  </a>
+                  {{/if}}
             </li>
           </ul>
         </div>

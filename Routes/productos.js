@@ -48,7 +48,6 @@ router.post('/productos/subir',async (req,res) => {
         stock_p: req.body.Stock,
         imagen_p: req.body.Imagen,
     }
-    console.log(req);
     await pool.query('insert into productos set ?', [nuevoProducto]);
     res.send('Received');
 })

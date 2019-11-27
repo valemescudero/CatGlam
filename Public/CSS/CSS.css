@@ -251,6 +251,12 @@ ul {
   background-position: center;
   background-size: cover;
 }
+.accountform {
+    background: rgba(255,255,255, 0.5);
+  padding: 2rem;
+    border-radius: .25rem;
+  width: 80%;
+}
 #collection {
   width: 100%;
   height: 600px;
@@ -281,13 +287,6 @@ ul {
   margin-top: 2rem;
 }
 
-#loginform {
-    background: rgba(255,255,255, 0.5);
-  padding: 2rem;
-    border-radius: .25rem;
-  width: 80%;
-}
-
 @media only screen and (max-width: 1039px) {
   .social {
     text-align: right !important;
@@ -310,6 +309,9 @@ ul {
   }
   .micuenta {
     display: none;
+  }
+  .accountform {
+    font-size: 0.7rem;
   }
   .producto {
     margin-bottom: 2rem;
