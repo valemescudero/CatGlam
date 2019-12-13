@@ -2,10 +2,9 @@ const express = require('express');
 const router = express.Router();
 
 router.get('/',  (req,res) => {
-  res.render('inicio');
-  
-   } );
-
-
-
+  let logger = {
+    "logged" :  req.session.log,
+    };
+    console.log (logger);
+} );
 module.exports = router;

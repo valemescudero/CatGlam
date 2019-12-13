@@ -39,6 +39,13 @@ h3 {
   text-transform: uppercase;
   margin-bottom: 1rem;
 }
+h4{
+  color: rgba(0,0,0,.9);
+}
+h4 i {
+  color: rgba(0,0,0,.5);
+  font-style: normal !important;
+}
 i {
   color: #666;
   font-size: 0.8rem;
