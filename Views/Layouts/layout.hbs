@@ -12,7 +12,6 @@
 <link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet">
 
 <script src="http://code.jquery.com/jquery-2.1.4.min.js"></script>
-<script src="/layout.js"></script>
 <script>
     $(function(){
         $('a').each(function(){
@@ -24,14 +23,13 @@
 
 </script>
 
-    <title>Cat Glam · Accesorios</title>
+    <title>{{title}}</title>
 </head>
 <body>
     
   <!-- Header -->
   <header>
     <!-- Navigation -->
-    <script id="layout" src="/Routes/home.js"></script>
     <nav class="navbar navbar-expand-lg navbar-light bg-light static-top">
       <div class="container-fluid">
         <a id="logo" class="navbar-brand" href="/">
@@ -59,14 +57,16 @@
                   <a class="nav-link" href="/micuenta">
                     Mi Cuenta
                   </a>
+            </li>
               {{#logger}}
                   {{#if logged}}
+            <li class="nav-item">
                   <a class="nav-link" href="/micuenta/logout">
                     Salir
                   </a>
+            </li>
                   {{/if}}
               {{/logger}}
-            </li>
           </ul>
         </div>
       </div>
