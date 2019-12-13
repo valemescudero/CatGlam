@@ -8,8 +8,8 @@ const cookieParser = require('cookie-parser');
 // Rutas
 const routesHome = require('./Routes/home');
 const routesProductos = require('./Routes/productos');
+const routesIngreso = require('./Routes/ingreso');
 const routesMicuenta = require('./Routes/micuenta');
-const usuarioRouter = require('./Routes/usuario');
 const path = require('path');
 
 // Inicialización
@@ -41,20 +41,12 @@ app.use(session({
                   }))
 
 
-
-
-
 // app.use de rutas
 app.use("/", routesHome);
 app.use("/productos", routesProductos); 
-app.use("/", routesMicuenta); 
-app.use('/', usuarioRouter); // solo pueden acceder a esta ruta usuarios que esten logueados :D
+app.use("/ingreso", routesIngreso); 
+app.use('/micuenta', routesMicuenta); // solo pueden acceder a esta ruta usuarios que esten logueados :D
 
 
-// router.get('/',  (req,res) => {
-//     let logger = {
-//       "logged" :  req.session.log,
-//       };
-//       console.log (logger);
-//   } );
+
 app.listen(port, () => { console.log('listening on port: '+ port)});

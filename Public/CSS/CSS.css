@@ -293,6 +293,11 @@ ul {
 #precio {
   margin-top: 2rem;
 }
+#messagepop {
+  margin-top: 2rem;
+  margin-left: 1rem;
+
+}
 
 @media only screen and (max-width: 1039px) {
   .social {

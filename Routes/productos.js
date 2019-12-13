@@ -4,29 +4,42 @@ const pool = require('../db/Index');
 
 //Layout para comparar
 router.get('/productos',  (req,res) => {
-    res.render('productos/prueba');
+    let logger = {
+      "logged" :  req.session.log,
+      };
+    res.render('productos/prueba', { title : 'Cat Glam · Prueba', logger:logger});
 } );
 
 
  //ya está direccionado a productos por el servidor x eso es '/'
 router.get('/', async (req,res) => {
+    let logger = {
+      "logged" :  req.session.log,
+      };
     const productos = await pool.query('select * from productos');
     console.log(productos);
-    res.render('productos/productos', {productos})
+    res.render('productos/productos', {title : 'Cat Glam · Productos', productos, logger:logger})
 })
 
 //Prueba modificar BD
 router.get('/productos/subir', (req, res) => {
-    res.render('productos/subirproductos')
+    let logger = {
+      "logged" :  req.session.log,
+      };
+    res.render('productos/subirproductos', {title : 'Cat Glam · Subir Productos', logger:logger})
 })
 
 router.get('/:id', async (req,res) => {
+    let logger = {
+      "logged" :  req.session.log,
+      };
     console.log(req.params);
     let id = req.params.id;
     // {id : 'numero'}
     let producto = await pool.query('select * from productos where id_p='+id);
+    let nombre = producto[0].nombre_p;
     console.log(producto);
-    res.render('productos/producto', {producto:producto});
+    res.render('productos/producto', {title : 'Cat Glam · ' + nombre, producto:producto, logger:logger});
     // select * from productos where id = 3
     // select * from productos where id = 'pepe'
     // no hay resultadoss

@@ -1,10 +1,10 @@
 <!-- Container Siteguide-->
 <div class="container mt-4">
-    <div class="row path"><span><a href="/productos/">Productos</a> / Snake</span></div>
+{{#producto}}
+    <div class="row path"><span><a href="/productos/">Productos</a> / {{nombre_p}}</span></div>
 </div>
 <!-- Container Producto -->
 <div class="detalle container mt-4 mb-5">
-{{#producto}}
   <div class="row justify-content-center">
     <div class="col-md-5">
       <div class="producto" style="background-image:url({{imagen_p}})"></div></div>

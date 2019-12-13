@@ -9,7 +9,7 @@
       </div>
       <div class="col-md-6 row
   justify-content-center">
-        <form class="accountform" method="POST" action="/micuenta">
+        <form class="accountform" method="POST" action="/ingreso">
           <div class="form-group">
             <label for="usuario">Usuario</label>
             <input id="usuario" class="form-control" name="usuario" type="email" placeholder="usuario@email.com" required>
@@ -19,9 +19,9 @@
             <label for="password">Contraseña</label>
             <input id="password" class="form-control" name="password" type="password" placeholder="contraseña" required>
           </div>
-          <button type="submit" class="btn btn-pink">Ingresar</button>
+          <button type="submit" class="btn btn-pink">Ingresar</button> 
+          <span id="messagepop" class="{{textcolor}}">{{message}}</span>
         </form>
-          <span class="text-danger">{{message}}</span>
       </div>
     </div>
   </div>
