@@ -11,6 +11,8 @@ const routesProductos = require('./Routes/productos');
 const routesIngreso = require('./Routes/ingreso');
 const routesRegistro = require('./Routes/registro');
 const routesMicuenta = require('./Routes/micuenta');
+const routesPanel = require('./Routes/admin');
+const routesCarrito = require('./Routes/usuario');
 const path = require('path');
 
 // Inicialización
@@ -47,8 +49,9 @@ app.use("/", routesHome);
 app.use("/productos", routesProductos); 
 app.use("/ingreso", routesIngreso); 
 app.use("/registro", routesRegistro); 
-app.use('/micuenta', routesMicuenta); // solo pueden acceder a esta ruta usuarios que esten logueados :D
-
+app.use('/micuenta', routesMicuenta);
+app.use('/panel', routesPanel);
+app.use('/carrito', routesCarrito);
 
 
 app.listen(port, () => { console.log('listening on port: '+ port)});

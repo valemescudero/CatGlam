@@ -21,11 +21,12 @@ router.get('/:id?', async (req,res) => {
     if (req.params.id) {
       productos = await pool.query('select * from productos where categoria_p = ' + req.params.id);
     } else {
-      productos = await pool.query('select * from productos');
+      productos = await pool.query('select * from productos ORDER BY categoria_p');
     }
     console.log(categorias);
     res.render('productos/productos', {title : 'Cat Glam · Productos', productos, categorias, logger:logger})
 })
+
 
 //Prueba modificar BD
 router.get('/productos/subir', (req, res) => {
@@ -57,18 +58,6 @@ router.get('/detalle/:id', async (req,res) => {
 
 // los datos que manda el front, llega desde el request en el body con los nombres indicados en
 // name del input. vos creas objeto y asocias esos valores
-router.post('/productos/subir',async (req,res) => {
-    console.log("Control");
-    console.log(req.body);
-    let nuevoProducto = {
-        nombre_p: req.body.pepito,
-        descripcion_p: req.body.Descripcion,
-        precio_p: req.body.Precio,
-        stock_p: req.body.Stock,
-        imagen_p: req.body.Imagen,
-    }
-    await pool.query('insert into productos set ?', [nuevoProducto]);
-    res.send('Received');
-})
+
 
 module.exports = router;
