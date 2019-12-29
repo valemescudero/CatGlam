@@ -5,7 +5,7 @@ const pool = require('../db/Index');
 
 router.get('/logout', async(req,res,next)=> {
     req.session.destroy(); // destruye la sesion DEL 
-    res.redirect('/');
+    res.redirect('/ingreso');
 })
 
 router.get('/', async(req,res,next)=> {
