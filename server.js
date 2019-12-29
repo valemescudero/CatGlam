@@ -9,6 +9,7 @@ const cookieParser = require('cookie-parser');
 const routesHome = require('./Routes/home');
 const routesProductos = require('./Routes/productos');
 const routesIngreso = require('./Routes/ingreso');
+const routesRegistro = require('./Routes/registro');
 const routesMicuenta = require('./Routes/micuenta');
 const path = require('path');
 
@@ -45,6 +46,7 @@ app.use(session({
 app.use("/", routesHome);
 app.use("/productos", routesProductos); 
 app.use("/ingreso", routesIngreso); 
+app.use("/registro", routesRegistro); 
 app.use('/micuenta', routesMicuenta); // solo pueden acceder a esta ruta usuarios que esten logueados :D
 
 

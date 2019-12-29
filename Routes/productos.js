@@ -12,13 +12,19 @@ router.get('/productos',  (req,res) => {
 
 
  //ya está direccionado a productos por el servidor x eso es '/'
-router.get('/', async (req,res) => {
+router.get('/:id?', async (req,res) => {
     let logger = {
       "logged" :  req.session.log,
       };
-    const productos = await pool.query('select * from productos');
-    console.log(productos);
-    res.render('productos/productos', {title : 'Cat Glam · Productos', productos, logger:logger})
+    const categorias = await pool.query('SELECT id_c, nombre_c FROM categorias INNER JOIN productos ON categorias.id_c = productos.categoria_p GROUP BY id_c');
+    let productos;
+    if (req.params.id) {
+      productos = await pool.query('select * from productos where categoria_p = ' + req.params.id);
+    } else {
+      productos = await pool.query('select * from productos');
+    }
+    console.log(categorias);
+    res.render('productos/productos', {title : 'Cat Glam · Productos', productos, categorias, logger:logger})
 })
 
 //Prueba modificar BD
@@ -29,7 +35,7 @@ router.get('/productos/subir', (req, res) => {
     res.render('productos/subirproductos', {title : 'Cat Glam · Subir Productos', logger:logger})
 })
 
-router.get('/:id', async (req,res) => {
+router.get('/detalle/:id', async (req,res) => {
     let logger = {
       "logged" :  req.session.log,
       };

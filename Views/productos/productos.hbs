@@ -12,10 +12,10 @@
     <div id="sections" class="row align-items-center mt-5">
       <div class="col text-center">
         <div class="btn-group " role="group" aria-label="Basic example">
-          <button type="button" class="btn btn-light">Todos</button>
-          <button type="button" class="btn btn-light">Aros</button>
-          <button type="button" class="btn btn-light">Moños</button>
-          <button stype="button" class="btn btn-light">Chokers</button>
+        <button type="button" class="btn btn-light"><a href="/productos">Todos</a></button>
+        {{#each categorias}}
+          <button type="button" class="btn btn-light"><a href="/productos/{{id_c}}">{{nombre_c}}</a></button>
+        {{/each}}
         </div>
       </div>
     </div>
@@ -26,7 +26,7 @@
     <div class="items">
         {{#each productos}}
       <div class="item aros" style="background-image:url({{imagen_p}})">
-        <div class="sticker"><a href="/productos/{{id_p}}">{{nombre_p}}</a>
+        <div class="sticker"><a href="/productos/detalle/{{id_p}}">{{nombre_p}}</a>
         </div>
       </div>
       {{/each}}

@@ -1,0 +1,134 @@
+ 
+.sidebar {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  z-index: -100; /* Behind the navbar */
+  padding: 48px 0 0; /* Height of navbar */
+}
+
+.sidebar-sticky {
+  position: relative;
+  top: 2rem;
+  height: calc(100vh - 48px);
+  padding-top: .5rem;
+  overflow-x: hidden;
+  overflow-y: auto; /* Scrollable contents if viewport is shorter than content. */
+}
+
+.sidebar .nav-link {
+  font-weight: 500;
+  color: #333;
+}
+
+.sidebar .nav-link .feather {
+  margin-right: 4px;
+  color: #999;
+}
+
+.sidebar .nav-link.active {
+  color: #007bff;
+}
+
+.sidebar .nav-link:hover .feather,
+.sidebar .nav-link.active .feather {
+  color: inherit;
+}
+
+.sidebar-heading {
+  font-size: .75rem;
+  text-transform: uppercase;
+}
+ 
+ 
+ 
+ 
+ 
+ 
+  <div class="row no-gutters">
+    <div class="col-3">
+        <nav class="col-md-2 d-none d-md-block bg-light sidebar">
+            <div class="sidebar-sticky">
+                <ul class="nav flex-column">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="#">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-home"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg>
+              Bandeja <span class="sr-only">(current)</span>
+                        </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-file"><path d="M13 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z"></path><polyline points="13 2 13 9 20 9"></polyline></svg>
+              Pedidos
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-shopping-cart"><circle cx="9" cy="21" r="1"></circle><circle cx="20" cy="21" r="1"></circle><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path></svg>
+              Productos
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-users"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
+              Clientes
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-bar-chart-2"><line x1="18" y1="20" x2="18" y2="10"></line><line x1="12" y1="20" x2="12" y2="4"></line><line x1="6" y1="20" x2="6" y2="14"></line></svg>
+              Reportes
+            </a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+    </div>
+    <div class="col justify-content-center  no-gutters">
+<!-- Editable table -->
+    <div id="table" class="table-editable">
+      <span class="table-add float-right mb-3 mr-2"><a href="#!" class="text-success"><i
+            class="fas fa-plus fa-2x" aria-hidden="true"></i></a></span>
+      <table class="table table-bordered table-responsive-md table-striped text-center">
+        <thead>
+          <tr>
+            <th class="text-center">Producto</th>
+            <th class="text-center">Descripción</th>
+            <th class="text-center">Precio</th>
+            <th class="text-center">Stock</th>
+            <th class="text-center">Imagen</th>
+            <th class="text-center">Cambios</th>
+          </tr>
+        </thead>
+        <tbody>
+        {{#each productos}}
+          <tr>
+            <td class="pt-3-half" contenteditable="true">{{nombre_p}}</td>
+            <td class="pt-3-half" contenteditable="true">{{descripcion_p}}</td>
+            <td class="pt-3-half" contenteditable="true">{{precio_p}}</td>
+            <td class="pt-3-half" contenteditable="true">{{stock_p}}</td>
+            <td class="pt-3-half">{{imagen_p}}</td>
+            <td> <!-- BOTÓN --><button type="button"
+                  class="btn btn-success btn-rounded btn-sm my-0">Guardar</button>
+              <span class="table-remove"><button type="button"
+                  class="btn btn-danger btn-rounded btn-sm my-0">Eliminar</button></span>
+            </td>
+          </tr>
+        {{/each}}
+          <!-- AGREGAR PRODUCTO -->
+          <tr id="agregarproducto">
+            <td class="pt-3-half" contenteditable="true">NOMBRE PRODUCTO</td>
+            <td class="pt-3-half" contenteditable="true">DESCRIPCIÓN</td>
+            <td class="pt-3-half" contenteditable="true">PRECIO</td>
+            <td class="pt-3-half" contenteditable="true">STOCK</td>
+            <td class="pt-3-half" contenteditable="true">IMAGEN</td>
+            <td class="pt-3-half" contenteditable="true"><button type="button"
+                  class="btn btn-success btn-rounded btn-sm my-0">Guardar</button></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+<!-- Editable table -->
+    </div>
+  </div>

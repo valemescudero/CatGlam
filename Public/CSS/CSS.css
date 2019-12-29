@@ -1,3 +1,30 @@
+/* INDEX:
+ALL
+RESPONSIVE
+STYLES & ELEMENTS ACROSS VIEWS ----------
+Buttons
+Container
+Navbar
+Footer
+Banner (Home, Registro, Ingreso)
+Benefits (Envíos, Pagos, etc.)
+VIEWS -----------------------------------
+HOME >
+Productos del Inicio
+PRODUCTOS >
+Grid de Productos
+PRODUCTO >
+Botón de compra
+REGISTER & LOGIN >
+Formularios
+ADMIN & USER >
+Sidebar
+ADMIN >
+Panel de Admin
+*/
+
+
+
 * {
   font-family: "Montserrat", sans-serif;
   margin: 0;
@@ -6,20 +33,63 @@
 html {
   font-size: 100%;
 }
-footer {
-  width: 100%;
-  height: auto;
-  padding: 2%;
-  display: flex;
-  flex-wrap: wrap;
+
+/* RESPONSIVE */
+
+@media only screen and (max-width: 1039px) {
+  .social {
+    text-align: right !important;
+  }
 }
-.navbar {
-  padding: 1rem 1rem;
+@media only screen and (max-width: 991px) {
+  .social {
+    height: auto;
+    padding-inline-end: 1rem;
+  }
+  .benefit_col {
+    margin-bottom: 1rem;
+  }
 }
-.container-fluid {
-  margin: 0 !important;
-  padding: 0 !important;
+@media only screen and (max-width: 767px) {
+  .location,
+  .social {
+    text-align: center !important;
+    white-space: normal !important;
+  }
+  .micuenta {
+    display: none;
+  }
+  .accountform {
+    font-size: 0.7rem;
+  }
+  .producto {
+    margin-bottom: 2rem;
+  }
+  
+  #panel, #sidebar {
+    min-height: auto !important;
+  }
 }
+#paneltablecontainer {
+height: 100vh;
+}
+@media only screen and (max-width: 627px) {
+  #collections h2 {
+    font-size: 2rem;
+  }
+}
+@media only screen and (max-width: 575px) {
+}
+@media only screen and (max-width: 469px) {
+  #collections h2 {
+    font-size: 1.5rem;
+  }
+  .items {
+    padding: 0px !important;
+  }
+}
+
+/* STYLES & ELEMENTS ACROSS VIEWS */
 
 h1 {
   font-size: 1.2rem;
@@ -51,6 +121,11 @@ i {
   font-size: 0.8rem;
 }
 a {
+  color: #666;
+  text-decoration: none !important;
+}
+a:hover {
+  color: #ff90b5;
   text-decoration: none !important;
 }
 ul {
@@ -62,12 +137,144 @@ ul {
   margin-inline-start: 0px;
   margin-inline-end: 0px;
 }
+.icon {
+  filter: invert(88%) sepia(12%) saturate(7499%) hue-rotate(291deg)
+    brightness(101%) contrast(102%);
+}
+/* Buttons */ 
+.btn.active {
+  color: #fff;
+  background-color: #90b3ff;
+  border-color: #90b3ff;
+}
+.btn-text {
+      line-height: 2rem;
+    font-size: 1rem;
+}
 .btn-pink {
   color: #fff;
   background-color: #ff90b5;
   border-color: #ff90b5;
   margin-top: 1rem;
 }
+.btn-lila {
+  background-color: #E0B2FF !important;
+}
+.btn-rosa {
+  background-color: #F9B2FF !important;
+}
+.btn-azul {
+  background-color: #3A395C !important;
+}
+.btn-celeste {
+  background-color: #BEB2FF !important;
+}
+.btn-aqua {
+  background-color: #B2F6FF !important;
+}
+.btn-verde {
+  background-color: #B8FFB2 !important;
+}
+.btn-amarillo {
+  background-color: #FFF9B2 !important;
+}
+.btn-durazno {
+  background-color: #FFDCB2 !important;
+}
+.btn-negro {
+  background-color: #131417 !important;
+  color: #fff !important;
+}
+
+/* Container */
+.container-fluid {
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+/* Navbar */
+
+.navbar {
+  padding: 0.5rem 1rem;
+  border-bottom: 1px solid #ececec;
+}
+#sticky { /* It must be in the outside-most element inside <body> */
+  position: -webkit-sticky; /* Safari */
+  position: sticky;
+  top: 0rem;
+  z-index: 99999;
+}
+
+/* Footer */
+
+footer {
+  width: 100%;
+  height: auto;
+  padding: 0.5rem;
+  display: flex;
+  flex-wrap: wrap;
+  border-top: 1px solid #ececec;
+}
+footer a:hover {
+  font-weight: bold;
+}
+.location {
+  text-align: left;
+  white-space: nowrap !important;
+}
+.social {
+  text-align: center !important;
+}
+
+/* Banner (Home, Registro, Ingreso) */
+
+#collection {
+  width: 100%;
+  height: 600px;
+  background: url(https://github.com/evadnemeraki/CatGlam/blob/master/Public/Images/4.jpg?raw=true);
+  background-position: center;
+  background-size: cover;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+}
+#partes {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+/* Benefits (Envíos, Pagos, etc.) */
+
+.benefit_item {
+  height: 100px;
+  background: #f3f3f3;
+  border-right: solid 1px #fff;
+}
+.benefit_icon {
+  justify-content: center;
+  align-items: center;
+}
+.benefit_i {
+  width: 2rem;
+}
+.benefit_content {
+  font-size: 0.7rem;
+  justify-content: center;
+  align-items: center;
+}
+.benefit_content h6 {
+  font-size: 0.8rem;
+  font-weight: 600;
+  margin-top: 1rem;
+  margin-bottom: 0.2rem !important;
+}
+
+/* --- VIEWS --- */
+
+/* HOME */
+/* Productos del Inicio */
+
 .parte {
   justify-content: center;
   align-items: center;
@@ -99,67 +306,20 @@ ul {
 .label:hover {
   background-color: #ff90b5;
 }
-.location {
-  text-align: left !important;
-  white-space: nowrap !important;
-}
-.social {
-  text-align: center !important;
-}
-.icon {
-  filter: invert(88%) sepia(12%) saturate(7499%) hue-rotate(291deg)
-    brightness(101%) contrast(102%);
-}
-.btn.active {
-  color: #fff;
-  background-color: #90b3ff;
-  border-color: #90b3ff;
-}
-.btn-text {
-      line-height: 2rem;
-    font-size: 1rem;
-}
-.btn-circle {
-    width: 2rem;
-    height: 2rem;
-    border-radius: 50%;
-    text-align: center;
-    font-size: 2rem;
-    line-height: 1rem;
-  margin-left: 0.4rem;
-  
-}
-.btn-lila {
-  background-color: #E0B2FF !important;
-}
-.btn-rosa {
-  background-color: #F9B2FF !important;
-}
-.btn-azul {
-  background-color: #3A395C !important;
-}
-.btn-celeste {
-  background-color: #BEB2FF !important;
-}
-.btn-aqua {
-  background-color: #B2F6FF !important;
-}
-.btn-verde {
-  background-color: #B8FFB2 !important;
-}
-.btn-amarillo {
-  background-color: #FFF9B2 !important;
-}
-.btn-durazno {
-  background-color: #FFDCB2 !important;
-}
-.btn-negro {
-  background-color: #131417 !important;
-  color: #fff !important;
-}
-.buy {
-  border-radius: 0 !important;
-  width: 90%;
+
+/* PRODUCTOS */
+/* Grid de Productos */
+
+#productos::after {
+  display: block;
+  position: absolute;
+  top: calc(100% + 13px);
+  left: 50%;
+  transform: translateX(-50%);
+  width: 60px;
+  height: 5px;
+  background: #ff90b5;
+  content: "";
 }
 .gridwrapper {
   padding: 20px;
@@ -229,116 +389,134 @@ ul {
 .sticker a {
   color: #fff;
 }
-.benefit_item {
-  height: 100px;
-  background: #f3f3f3;
-  border-right: solid 1px #fff;
+
+/* PRODUCTO */
+/* Botón de compra */
+
+.buy {
+  border-radius: 0 !important;
+  width: 90%;
 }
-.benefit_icon {
-  justify-content: center;
-  align-items: center;
-}
-.benefit_i {
-  width: 2rem;
-}
-.benefit_content {
-  font-size: 0.7rem;
-  justify-content: center;
-  align-items: center;
-}
-.benefit_content h6 {
-  font-size: 0.8rem;
-  font-weight: 600;
-  margin-top: 1rem;
-  margin-bottom: 0.2rem !important;
-}
+
 .producto {
   width: 100%;
   padding-bottom: 100%;
   background-position: center;
   background-size: cover;
 }
+#precio {
+  margin-top: 2rem;
+}
+
+/* REGISTER & LOGIN */
+/* Formularios */
 .accountform {
     background: rgba(255,255,255, 0.5);
   padding: 2rem;
     border-radius: .25rem;
   width: 80%;
 }
-#collection {
-  width: 100%;
-  height: 600px;
-  background: url(https://github.com/evadnemeraki/CatGlam/blob/master/Public/Images/4.jpg?raw=true);
-  background-position: center;
-  background-size: cover;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  align-items: center;
-}
-#partes {
-  display: flex;
-  flex-wrap: wrap;
-}
-#productos::after {
-  display: block;
-  position: absolute;
-  top: calc(100% + 13px);
-  left: 50%;
-  transform: translateX(-50%);
-  width: 60px;
-  height: 5px;
-  background: #ff90b5;
-  content: "";
-}
-#precio {
-  margin-top: 2rem;
-}
 #messagepop {
   margin-top: 2rem;
   margin-left: 1rem;
-
 }
 
-@media only screen and (max-width: 1039px) {
-  .social {
-    text-align: right !important;
-  }
+/* ADMIN & USER */
+/* Sidebar */
+
+
+/* ADMIN */
+/* Panel de Admin */
+#panel, #sidebar {
+  min-height: 100vh;
 }
-@media only screen and (max-width: 991px) {
-  .social {
-    height: auto;
-    padding-inline-end: 1rem;
-  }
-  .benefit_col {
-    margin-bottom: 1rem;
-  }
+#sidebar {
+  background: #ff90b5;
+  color: white;
 }
-@media only screen and (max-width: 767px) {
-  .location,
-  .social {
-    text-align: center !important;
-    white-space: normal !important;
-  }
-  .micuenta {
-    display: none;
-  }
-  .accountform {
-    font-size: 0.7rem;
-  }
-  .producto {
-    margin-bottom: 2rem;
-  }
+#panelnav {
+  margin: auto;
+  margin-bottom: 1rem;
+  width: 90% !important;
+  position: -webkit-sticky; /* Safari */
+  position: sticky;
+  top: 7rem;
 }
-@media only screen and (max-width: 627px) {
-  #collections h2 {
-    font-size: 2rem;
-  }
+#panelnav a {
+  color: white;
+  text-decoration: none !important;
 }
-@media only screen and (max-width: 469px) {
-  #collections h2 {
-    font-size: 1.5rem;
-  }
-  .items {
-    padding: 0px !important;
-  }
+#panelnav a:hover {
+  color: #4b4b4b;
+  text-decoration: none !important;
 }
+#panelnav li {  display: inline-block; 
+  zoom: 1;
+  *display: inline;
+}
+#paneltablecontainer {
+  justify-content: center;
+  overflow: auto;
+}
+#tablecenter {
+  margin: auto;
+  width: 90% !important;
+  margin-top: 2rem;
+}
+table {
+  font-size: 0.8rem;
+}
+@media only screen and (max-width: 760px), (min-device-width: 768px) and (max-device-width: 1024px)  {
+
+		/* Force table to not be like tables anymore */
+		table, thead, tbody, th, td, tr {
+			display: block;
+    }
+    .table-bordered {
+      border: 1px solid transparent;
+  }
+
+		/* Hide table headers (but not display: none;, for accessibility) */
+		thead tr {
+			position: absolute;
+			top: -9999px;
+			left: -9999px;
+		}
+
+    tr {
+      margin: 0 0 1rem 0;
+    }
+      
+    tr:nth-child(odd) {
+      background: #f8f9fa;
+    }
+    
+		td {
+			/* Behave  like a "row" */
+			border: none;
+			border-bottom: 1px solid red;
+			position: relative;
+			padding-left: 50%;
+		}
+
+		td:before {
+			/* Now like a table header */
+			position: absolute;
+			/* Top/left values mimic padding */
+			left: 1rem;
+			padding-right: 10px;
+			white-space: nowrap;
+		}
+
+		/*
+		Label the data
+    You could also use a data-* attribute and content for this. That way "bloats" the HTML, this way means you need to keep HTML and CSS in sync. Lea Verou has a clever way to handle with text-shadow.
+		*/
+		td:nth-of-type(1):before { content: "Producto"; }
+		td:nth-of-type(2):before { content: "Descripción"; }
+		td:nth-of-type(3):before { content: "Precio"; }
+		td:nth-of-type(4):before { content: "Stock"; }
+		td:nth-of-type(5):before { content: "Imagen"; }
+		td:nth-of-type(6):before { content: ""; }
+}
+
