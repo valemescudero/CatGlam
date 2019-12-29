@@ -5,6 +5,20 @@ const pool = require('../db/Index');
 
 
 router.get('/', async(req,res,next)=> {
+  let logger = {
+    "logged" :  req.session.log,
+    };
+    if (req.session.idAdmin) {
+    res.render('admin', {message : 'Bienvenido Admin ' + req.session.nombre,  title : 'Cat Glam · Mi Cuenta', logger:logger});
+}
+  else
+  {
+  res.redirect('/ingreso');
+}
+  })
+  
+  
+  router.get('/productos', async(req,res,next)=> {
     let logger = {
       "logged" :  req.session.log,
       };
@@ -14,7 +28,7 @@ router.get('/', async(req,res,next)=> {
       if (text == undefined) {
         const productos = await pool.query('select * from productos INNER JOIN categorias ON productos.categoria_p = categorias.id_c');
         const categorias = await pool.query('select * from categorias');
-      res.render('admin', {message : 'Bienvenido Admin ' + req.session.nombre, productos, categorias, title : 'Cat Glam · Mi Cuenta', logger:logger});
+      res.render('panelproductos', {message : 'Bienvenido Admin ' + req.session.nombre, productos, categorias, title : 'Cat Glam · Mi Cuenta', logger:logger});
 }
     else {
 //         SELECT * 
@@ -22,7 +36,7 @@ router.get('/', async(req,res,next)=> {
 // WHERE nombre_p LIKE '%Aro%' OR descripcion_p LIKE '%Aro%' OR categoria_p LIKE '%Aro%'
         const productos = await pool.query("select * from productos INNER JOIN categorias ON productos.categoria_p = categorias.id_c WHERE nombre_p LIKE '%"+ text +"%'");
         const categorias = await pool.query('select * from categorias')
-        res.render('admin', {message : 'Bienvenido Admin ' + req.session.nombre, title : 'Cat Glam · Panel de Control', productos, categorias, logger:logger});
+        res.render('panelproductos', {message : 'Bienvenido Admin ' + req.session.nombre, title : 'Cat Glam · Panel de Control', productos, categorias, logger:logger});
   
     }
 }
@@ -32,7 +46,7 @@ router.get('/', async(req,res,next)=> {
 }
     })
 
-    router.post('/subir/',async (req,res) => {
+    router.post('/productos/subir/',async (req,res) => {
       console.log("Control");
       const categoriaId = await pool.query('select id_c from categorias where nombre_c = \"'
       + req.body.categoria + '\"');
@@ -46,15 +60,15 @@ router.get('/', async(req,res,next)=> {
       }
       console.log(nuevoProducto);
       await pool.query('insert into productos set ?', [nuevoProducto]);
-      res.send('Received');
+      res.redirect('/panel/productos');
     })
     
     router.post("/modificar/", async(req, res) => { console.log(req.body)
       try {
          await pool.query("UPDATE productos SET nombre_p = \""
         + req.body.nombre + "\" WHERE id_p = " + req.body.id);
-        console.log(asd)
-        res.status(200)
+        console.log(asd);
+        res.redirect('/panel/productos');
       } catch (error) {
           console.log("asda")
         res.status(400).json({ error: error})
@@ -68,4 +82,44 @@ router.get('/', async(req,res,next)=> {
         alert("MAL")
       }
     })
+
+    router.get('/clientes', async(req,res,next)=> {
+      let logger = {
+        "logged" :  req.session.log,
+        };
+        if (req.session.idAdmin) {
+        const text =req.url.split("text=")[1];
+  
+        if (text == undefined) {
+          const usuarios = await pool.query('select * from usuarios');
+        res.render('panelclientes', {message : 'Bienvenido Admin ' + req.session.nombre, usuarios, title : 'Cat Glam · Mi Cuenta', logger:logger});
+  }
+      else {
+  //         SELECT * 
+  // FROM productos INNER JOIN categorias ON productos.categoria_p = categorias.id_c 
+  // WHERE nombre_p LIKE '%Aro%' OR descripcion_p LIKE '%Aro%' OR categoria_p LIKE '%Aro%'
+          const productos = await pool.query("select * from usuarios WHERE usuario_u LIKE '%"+ text +"%'");
+          res.render('panelclientes', {message : 'Bienvenido Admin ' + req.session.nombre, title : 'Cat Glam · Panel de Control', usuarios, logger:logger});
+    
+      }
+  }
+      else
+      {
+      res.redirect('/ingreso');
+  }
+      })
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     module.exports = router;

@@ -38,10 +38,30 @@
       </nav>
     </div>
     <div id="paneltablecontainer" class="col-lg-10 col-md-9 text-center">
-        <div id="tablecenter">
-            <div class="row no-gutters justify-content-between">
-            </div>
-        </div>
+      <div id="tablecenter">
+        <table role="table" class="table table-bordered text-center">
+        <thead role="rowgroup" class="bg-light">
+          <tr role="row">
+{{!-- If you change the table remember to update the data labels in the CSS file --}}
+            <th role="columnheader" class="text-center" style="display: none;">Id</th>
+            <th role="columnheader" class="text-center">Usuario</th>
+            <th role="columnheader" class="text-center">Nombre</th>
+            <th role="columnheader" class="text-center">Apellido</th>
+            <th role="columnheader" class="text-center">Fecha de Registro</th>
+          </tr>
+        </thead>
+        <tbody role="rowgroup">
+          {{#each usuarios}}
+          <tr role="row">
+            <td role="cell" style="display: none;">{{id_u}}</td>
+            <td role="cell">{{usuario_u}}</td>
+            <td role="cell">{{nombre_u}}</td>
+            <td role="cell">{{apellido_u}}</td>
+            <td role="cell">{{fecha_registro_u}}</td>
+          </tr>
+          {{/each}}
+        </tbody>
+        </table>
       </div>
     </div>
   </div>
