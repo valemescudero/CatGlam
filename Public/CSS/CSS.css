@@ -24,7 +24,6 @@ Panel de Admin
 */
 
 
-
 * {
   font-family: "Montserrat", sans-serif;
   margin: 0;
@@ -125,7 +124,7 @@ a {
   text-decoration: none !important;
 }
 a:hover {
-  color: #ff90b5;
+  color: #ff7d9b;
   text-decoration: none !important;
 }
 ul {
@@ -141,6 +140,11 @@ ul {
   filter: invert(88%) sepia(12%) saturate(7499%) hue-rotate(291deg)
     brightness(101%) contrast(102%);
 }
+.gradb {
+  color: #f8f9fa;
+  background-image: linear-gradient(to bottom right, #ff396e, #8ca8cd);
+}
+
 /* Buttons */ 
 .btnfondo a {
   color: #fff;
@@ -158,11 +162,6 @@ ul {
   color: #fff;
   text-decoration: none !important;
 }
-.btn.active {
-  color: #fff;
-  background-color: #90b3ff;
-  border-color: #90b3ff;
-}
 .btn-text {
       line-height: 2rem;
     font-size: 1rem;
@@ -173,29 +172,11 @@ ul {
   border-color: #ff90b5;
   margin-top: 1rem;
 }
-.btn-lila {
-  background-color: #E0B2FF !important;
-}
 .btn-rosa {
-  background-color: #F9B2FF !important;
-}
-.btn-azul {
-  background-color: #3A395C !important;
-}
-.btn-celeste {
-  background-color: #BEB2FF !important;
-}
-.btn-aqua {
-  background-color: #B2F6FF !important;
-}
-.btn-verde {
-  background-color: #B8FFB2 !important;
-}
-.btn-amarillo {
-  background-color: #FFF9B2 !important;
-}
-.btn-durazno {
-  background-color: #FFDCB2 !important;
+  color: #fff;
+  background-color: #ff396e;
+  border-color: #ff396e;
+  margin-top: 1rem;
 }
 .btn-negro {
   background-color: #131417 !important;
@@ -220,6 +201,10 @@ ul {
   top: 0rem;
   z-index: 99999;
 }
+.navbar .nav-link.active {
+color: #ff396e !important;
+font-weight: bold;
+}
 
 /* Footer */
 
@@ -232,7 +217,7 @@ footer {
   border-top: 1px solid #ececec;
 }
 footer a:hover {
-  font-weight: bold;
+  font-weight: bolder;
 }
 .location {
   text-align: left;
@@ -301,7 +286,7 @@ footer a:hover {
 }
 .label {
   color: #fff;
-  background-color: #90b3ff;
+  background-color: #8ca8cd;
   margin: 0;
   margin-bottom: 0.7rem;
   display: inline-block;
@@ -320,7 +305,7 @@ footer a:hover {
   text-decoration: none;
 }
 .label:hover {
-  background-color: #ff90b5;
+  background-color: #ff7d9b;
 }
 
 /* PRODUCTOS */
@@ -449,9 +434,8 @@ footer a:hover {
 #panel, #sidebar {
   min-height: 100vh;
 }
-#sidebar {
-  background: #ff90b5;
-  color: white;
+#sidebar .nav-link.active {
+    color: #f8f9fa !important ;
 }
 #panelnav {
   margin: auto;
@@ -466,7 +450,7 @@ footer a:hover {
   text-decoration: none !important;
 }
 #panelnav a:hover {
-  color: #4b4b4b;
+  color: #d4d3e4;
   text-decoration: none !important;
 }
 #panelnav li { 
@@ -578,4 +562,22 @@ table {
   color: #000;
   text-decoration: none;
   cursor: pointer;
+}
+
+
+.bd-callout-info-low {
+  border-left-color: #d03a29 !important;
+}.bd-callout-info-ok {
+  border-left-color: #009a67 !important;
+}
+.bd-callout {
+  padding: 1.25rem;
+  margin-top: 1.25rem;
+  margin-bottom: 1.25rem;
+  border: 1px solid #eee;
+  border-left-width: .25rem;
+  border-radius: .25rem;
+  width: 90%;
+  margin: auto auto;
+  margin-bottom: 2rem;
 }

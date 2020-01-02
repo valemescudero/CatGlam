@@ -9,7 +9,9 @@ router.get('/', async(req,res,next)=> {
     "logged" :  req.session.log,
     };
     if (req.session.idAdmin) {
-    res.render('admin', {message : 'Bienvenido Admin ' + req.session.nombre,  title : 'Cat Glam · Mi Cuenta', logger:logger});
+     const stockwarning = await pool.query('select * from productos INNER JOIN categorias ON productos.categoria_p = categorias.id_c WHERE stock_p < 10' );
+    console.log(stockwarning);
+     res.render('admin', {message : '¡Hola, ' + req.session.nombre + ' (Admin)!',  title : 'Cat Glam · Mi Cuenta', stockwarning, logger:logger});
 }
   else
   {
@@ -28,15 +30,12 @@ router.get('/', async(req,res,next)=> {
       if (text == undefined) {
         const productos = await pool.query('select * from productos INNER JOIN categorias ON productos.categoria_p = categorias.id_c');
         const categorias = await pool.query('select * from categorias');
-      res.render('panelproductos', {message : 'Bienvenido Admin ' + req.session.nombre, productos, categorias, title : 'Cat Glam · Mi Cuenta', logger:logger});
+      res.render('panelproductos', {message : '¡Hola, ' + req.session.nombre + ' (Admin)!', productos, categorias, title : 'Cat Glam · Mi Cuenta', logger:logger});
 }
     else {
-//         SELECT * 
-// FROM productos INNER JOIN categorias ON productos.categoria_p = categorias.id_c 
-// WHERE nombre_p LIKE '%Aro%' OR descripcion_p LIKE '%Aro%' OR categoria_p LIKE '%Aro%'
-        const productos = await pool.query("select * from productos INNER JOIN categorias ON productos.categoria_p = categorias.id_c WHERE nombre_p LIKE '%"+ text +"%'");
+        const productos = await pool.query("select * from productos INNER JOIN categorias ON productos.categoria_p = categorias.id_c WHERE nombre_p LIKE '%"+ text +"%' OR descripcion_p LIKE '%"+ text +"%' OR categoria_p LIKE '%"+ text +"%'");
         const categorias = await pool.query('select * from categorias')
-        res.render('panelproductos', {message : 'Bienvenido Admin ' + req.session.nombre, title : 'Cat Glam · Panel de Control', productos, categorias, logger:logger});
+        res.render('panelproductos', {message : '¡Hola, ' + req.session.nombre + ' (Admin)!', title : 'Cat Glam · Panel de Control', productos, categorias, logger:logger});
   
     }
 }
@@ -66,7 +65,10 @@ router.get('/', async(req,res,next)=> {
     router.post("/modificar/", async(req, res) => { console.log(req.body)
       try {
          await pool.query("UPDATE productos SET nombre_p = \""
-        + req.body.nombre + "\" WHERE id_p = " + req.body.id);
+         + req.body.nombre + "\", descripcion_p = \""
+         + req.body.descripcion + "\", precio_p = \""
+         + req.body.precio + "\", stock_p = \""
+         + req.body.stock + "\" WHERE id_p = " + req.body.id);
         console.log(asd);
         res.redirect('/panel/productos');
       } catch (error) {
@@ -92,14 +94,14 @@ router.get('/', async(req,res,next)=> {
   
         if (text == undefined) {
           const usuarios = await pool.query('select * from usuarios');
-        res.render('panelclientes', {message : 'Bienvenido Admin ' + req.session.nombre, usuarios, title : 'Cat Glam · Mi Cuenta', logger:logger});
+        res.render('panelclientes', {message : '¡Hola, ' + req.session.nombre + ' (Admin)!', usuarios, title : 'Cat Glam · Mi Cuenta', logger:logger});
   }
       else {
   //         SELECT * 
   // FROM productos INNER JOIN categorias ON productos.categoria_p = categorias.id_c 
   // WHERE nombre_p LIKE '%Aro%' OR descripcion_p LIKE '%Aro%' OR categoria_p LIKE '%Aro%'
           const productos = await pool.query("select * from usuarios WHERE usuario_u LIKE '%"+ text +"%'");
-          res.render('panelclientes', {message : 'Bienvenido Admin ' + req.session.nombre, title : 'Cat Glam · Panel de Control', usuarios, logger:logger});
+          res.render('panelclientes', {message : '¡Hola, ' + req.session.nombre + ' (Admin)!', title : 'Cat Glam · Panel de Control', usuarios, logger:logger});
     
       }
   }
