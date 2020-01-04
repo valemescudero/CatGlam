@@ -3,7 +3,7 @@ const express = require('express');
 const router = express.Router();
 const pool = require('../db/Index');
 
-
+// Ruta de Panel de Admin - Bandeja
 router.get('/', async(req,res,next)=> {
   let logger = {
     "logged" :  req.session.log,
@@ -19,8 +19,8 @@ router.get('/', async(req,res,next)=> {
 }
   })
   
-  
-  router.get('/productos', async(req,res,next)=> {
+// Ruta de Panel de Admin - Productos
+  router.get('/productos', async(req,res,next)=> { 
     let logger = {
       "logged" :  req.session.log,
       };
@@ -31,7 +31,7 @@ router.get('/', async(req,res,next)=> {
         const productos = await pool.query('select * from productos INNER JOIN categorias ON productos.categoria_p = categorias.id_c');
         const categorias = await pool.query('select * from categorias');
       res.render('panelproductos', {message : '¡Hola, ' + req.session.nombre + ' (Admin)!', productos, categorias, title : 'Cat Glam · Mi Cuenta', logger:logger});
-}
+    }
     else {
         const productos = await pool.query("select * from productos INNER JOIN categorias ON productos.categoria_p = categorias.id_c WHERE nombre_p LIKE '%"+ text +"%' OR descripcion_p LIKE '%"+ text +"%' OR categoria_p LIKE '%"+ text +"%'");
         const categorias = await pool.query('select * from categorias')
@@ -62,17 +62,16 @@ router.get('/', async(req,res,next)=> {
       res.redirect('/panel/productos');
     })
     
-    router.post("/modificar/", async(req, res) => { console.log(req.body)
+    router.post("/modificar/", async(req, res) => { 
       try {
-         await pool.query("UPDATE productos SET nombre_p = \""
+         const op = await pool.query("UPDATE productos SET nombre_p = \""
          + req.body.nombre + "\", descripcion_p = \""
          + req.body.descripcion + "\", precio_p = \""
          + req.body.precio + "\", stock_p = \""
          + req.body.stock + "\" WHERE id_p = " + req.body.id);
-        console.log(asd);
-        res.redirect('/panel/productos');
+         res.status(200).json()
       } catch (error) {
-          console.log("asda")
+          console.log(error)
         res.status(400).json({ error: error})
       }
     })

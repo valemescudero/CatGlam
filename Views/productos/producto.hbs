@@ -10,11 +10,13 @@
       <div class="producto" style="background-image:url({{imagen_p}})"></div></div>
     <div class="col-md-5 justify-content-center">
       <h2>{{nombre_p}}</h2>
-      <p class="mt-3">{{descripcion_p}}</p>
-      <h4 id="precio">${{precio_p}} <i>Stock: {{stock_p}}</i></h4>
-      <div class="row mt-5  justify-content-center">
+      <p id="precio">${{precio_p}}</p>
+      <p class=" text-left">{{descripcion_p}}</p>
+      <div class="row mt-5 justify-content-center">
+        <small id="carritocant" class="form-text">Cantidad:</small>
+        <input type="number" class="form-control mb-3" id="carritocant">
         <button class="buy btn-negro btn" type="submit">Agregar al carrito</button>
-      </div>
+      </div>       
     </div>
   </div>
   {{/producto}}

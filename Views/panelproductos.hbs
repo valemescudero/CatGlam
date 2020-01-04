@@ -1,6 +1,6 @@
 <div id="panel" class="container-fluid no-gutters">
   <div class="row no-gutters">
-    <div id="sidebar" class="bg-pink col-lg-2 col-md-3">
+    <div id="sidebar" class="gradb col-lg-2 col-md-3">
       <nav id="panelnav">
       <div id="saludo">{{message}}</div>
 <ul class="nav flex-column">
@@ -40,10 +40,10 @@
     <div id="paneltablecontainer" class="col-lg-10 col-md-9 text-center">
       <div id="tablecenter">
         <div class="row no-gutters justify-content-between">
-          <button type="button" onclick="document.getElementById('myModal').style.display='block'" class="btn gradb">+ Agregar producto</button>
+          <button type="button" onclick="document.getElementById('myModal').style.display='block'" class="btn btn-celeste">+ Agregar producto</button>
               <form  class="form-inline my-2 my-lg-0" method="GET" action="">
                 <input class="form-control mr-sm-2" type="text" placeholder="Filtrar" name="text">
-                <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Filtrar</button>
+                <button class="btn btn-outline-secondary my-2 my-sm-0" type="submit">Filtrar</button>
               </form>
         </div>
         <table role="table" class="table table-bordered text-center mt-2">
@@ -70,7 +70,7 @@
             <td role="cell" contenteditable="true">{{precio_p}}</td>
             <td role="cell" contenteditable="true">{{stock_p}}</td>
             <td role="cell"><img src="{{imagen_p}}" style="width: 5rem;"></td>
-            <td role="cell"> <!-- BOTÓN --><button type="button" class="btnSave btnfondo btn btn-success btn-sm my-0 m-1">Guardar</button>
+            <td role="cell"> <!-- BOTÓN --><button type="button" class="btnSave btnfondo btn btn-secondary btn-sm my-0 m-1">Guardar</button>
               <span class="table-remove"><button type="button" class="btnDelete btnborde btn btn-outline-danger btn-sm my-0"><a href="">Eliminar</a></button></span>
             </td>
           </tr>
@@ -112,12 +112,10 @@
     <label for="Imagen">Imagen(URL): </label>
     <input class="form-control" name="imagen" type="text" id="Imagen">
   </div> 
-<button type="submit" class="btnSave btn btn-success btn-rounded btn-sm my-0 m-1">Guardar</button>    
+<button type="submit" class="btnSave btn btn-secondary btn-rounded btn-sm my-0 m-1">Guardar</button>    
     </form>
   </div>
 </div>
-
-
 
 <script>
 // Get the modal
@@ -162,10 +160,14 @@ window.onclick = function(event) {
                 "Content-Type" : "application/json"
               },
               data:  JSON.stringify(producto),
-             
+              statusCode: {
+                200: function() {
+                window.location.reload();
+                }
+              },
             })
-
           })
+          
           
         </script>
 
