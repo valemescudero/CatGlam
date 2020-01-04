@@ -11,7 +11,7 @@ router.get('/productos',  (req,res) => {
 } );
 
 
- //ya está direccionado a productos por el servidor x eso es '/'
+ //Filtro de Categorías
 router.get('/:id?', async (req,res) => {
     let logger = {
       "logged" :  req.session.log,
@@ -47,17 +47,8 @@ router.get('/detalle/:id', async (req,res) => {
     let nombre = producto[0].nombre_p;
     console.log(producto);
     res.render('productos/producto', {title : 'Cat Glam · ' + nombre, producto:producto, logger:logger});
-    // select * from productos where id = 3
-    // select * from productos where id = 'pepe'
-    // no hay resultadoss
-    // let obj = [
-    //     { id: 1, nombre: 'Vino', descripcion: 'vino de calidad', precio: 200, stock: 10 },
-    // ]
-    // res.render('productos',{info : obj});
 })
 
-// los datos que manda el front, llega desde el request en el body con los nombres indicados en
-// name del input. vos creas objeto y asocias esos valores
 
 
 module.exports = router;
