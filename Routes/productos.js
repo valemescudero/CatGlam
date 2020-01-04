@@ -2,16 +2,7 @@ const express = require('express');
 const router = express.Router();
 const pool = require('../db/Index');
 
-//Layout para comparar
-router.get('/productos',  (req,res) => {
-    let logger = {
-      "logged" :  req.session.log,
-      };
-    res.render('productos/prueba', { title : 'Cat Glam · Prueba', logger:logger});
-} );
-
-
- //Filtro de Categorías
+ //Página productos con opc Filtro de Categorías
 router.get('/:id?', async (req,res) => {
     let logger = {
       "logged" :  req.session.log,

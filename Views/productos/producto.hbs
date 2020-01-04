@@ -14,8 +14,8 @@
       <p class=" text-left">{{descripcion_p}}</p>
       <div class="row mt-5 justify-content-center">
           <small id="carritocant" class="form-text">Cantidad:</small>
-          <input class="form-control" name="carritocant" type="number" id="carritocant">
-        <button class="buy btn-negro btn" type="submit" id="btnAdd">Agregar al carrito</button>
+          <input min="1" max="{{stock_p}}" value="1" class="form-control" name="carritocant" type="number" id="carritoCant" onchange="getU()">
+        <button class="buy btn-negro btn" onclick="redir()" type="submit" id="btnAdd">Agregar al carrito</button>
       </div>       
     </div>
   </div>
@@ -68,9 +68,16 @@
 </div>
 
 <script>
-  $('#carritocant').on('click', '#btnAdd', function(){
-  var carritoCant = $('#carritocant').val();
-  console.log(carritoCant);
-  });
-  
+  var cantidad;
+function getU() {
+  cantidad = document.getElementById('carritoCant').value;
+  console.log(cantidad);
+};
+
+ function redir() { 
+   var idProducto = window.location.href.split('detalle/')[1];
+  console.log(idProducto);
+   window.location.href= `/cart/${cantidad}/${idProducto}`;
+ }
+ //string template embebe var en string
 </script>

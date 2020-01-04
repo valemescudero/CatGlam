@@ -1,1 +1,80 @@
-{{message}}
+<div id="panel" class="container-fluid no-gutters">
+  <div class="row no-gutters">
+    <div id="sidebar" class="gradb col-lg-2 col-md-3">
+      <nav id="panelnav">
+      <div id="saludo">{{message}}</div>
+<ul class="nav flex-column">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="/panel">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg>
+              Mi Carrito <span class="sr-only">(current)</span>
+                        </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/panel/productos">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z"></path><polyline points="13 2 13 9 20 9"></polyline></svg>
+              Mis Datos
+            </a>
+          </li>
+        </ul>
+      </nav>
+    </div>
+    <div id="paneltablecontainer" class="col-lg-10 col-md-9 text-center">
+        <div id="tablecenter">
+            <div class="row no-gutters justify-content-between">
+                {{#if carrito}}
+              <table role="table" class="table table-bordered text-center">
+        <thead role="rowgroup" class="bg-light">
+          <tr role="row">
+{{!-- If you change the table remember to update the data labels in the CSS file --}}
+            <th role="columnheader" class="text-center">Producto</th>
+            <th role="columnheader" class="text-center">Precio</th>
+            <th role="columnheader" class="text-center">Cantidad</th>
+            <th role="columnheader" class="text-center">Subtotal</th>
+            <th role="columnheader" class="text-center">Acción</th>
+          </tr>
+        </thead>
+        <tbody role="rowgroup">
+          {{#each carrito}}
+          
+          <tr role="row">
+            <td role="cell" >{{nombre}}</td>
+            <td role="cell">{{precio}}</td>
+            <td role="cell">{{cantidad}}</td>
+            <td role="cell"><span id="{{id}}"></span></td>
+            <td role="cell"> <!-- BOTÓN --><span class="table-remove"><button type="button" class="btnDelete btnborde btn btn-outline-danger btn-sm my-0"><a href="">Eliminar</a></button></span>
+            </td>
+          </tr>
+          {{/each}}
+        </tbody>
+        </table>
+          </div><div class="row justify-content-end">
+          <div><span>Total: <b id="total"></span></b></div>
+        {{/if}}
+
+                
+
+            </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+          <script>
+            var suma = 0;
+            var iddd = 0;
+              "{{#each carrito}}"
+            var foo = "{{precio}}"
+            console.log(foo)
+            var zoo = "{{cantidad}}"
+            console.log(zoo)
+            var subtotal = (foo*zoo)
+            console.log(subtotal)
+            suma += (foo*zoo);
+            console.log(subtotal)
+            document.getElementById("{{id}}").innerHTML = subtotal
+            "{{/each}}"
+            console.log(suma)
+            document.getElementById("total").innerHTML = suma
+        </script>
