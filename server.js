@@ -14,6 +14,7 @@ const routesMicuenta = require('./Routes/micuenta');
 const routesPanel = require('./Routes/admin');
 const routesCarrito = require('./Routes/usuario');
 const routesCart = require('./Routes/cart');
+const routesCompras = require('./Routes/compras');
 const path = require('path');
 
 // Inicialización
@@ -54,6 +55,6 @@ app.use('/micuenta', routesMicuenta);
 app.use('/panel', routesPanel);
 app.use('/carrito', routesCarrito);
 app.use('/cart', routesCart);
-
+app.use('/compras', routesCompras);
 
 app.listen(port, () => { console.log('listening on port: '+ port)});

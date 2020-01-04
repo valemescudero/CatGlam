@@ -1,47 +1,12 @@
-{{#if carrito}}
-              <table role="table" class="table table-bordered text-center">
-        <thead role="rowgroup" class="bg-light">
-          <tr role="row">
-{{!-- If you change the table remember to update the data labels in the CSS file --}}
-            <th role="columnheader" class="text-center">Producto</th>
-            <th role="columnheader" class="text-center">Precio</th>
-            <th role="columnheader" class="text-center">Cantidad</th>
-            <th role="columnheader" class="text-center">Subtotal</th>
-            <th role="columnheader" class="text-center">Acción</th>
-          </tr>
-        </thead>
-        <tbody role="rowgroup">
-          {{#each carrito}}
-          
-          <tr role="row">
-            <td role="cell" >{{nombre}}</td>
-            <td role="cell">{{precio}}</td>
-            <td role="cell">{{cantidad}}</td>
-            <td role="cell"><span id="{{id}}"></span></td>
-            <td role="cell"> <!-- BOTÓN --><span class="table-remove"><button type="button" class="btnDelete btnborde btn btn-outline-danger btn-sm my-0"><a href="">Eliminar</a></button></span>
-            </td>
-          </tr>
-          {{/each}}
-        </tbody>
-        </table>
-          </div><div class="row justify-content-end">
-          <div><span>Total: <b id="total"></span></b></div>
-        {{/if}}
+const lastId = 
+'INSERT INTO ordencompra (idu_o)
+VALUES ('+ id_u + ')';
+SELECT LAST_INSERT_ID();
 
-          <script>
-            var suma = 0;
-            var iddd = 0;
-              "{{#each carrito}}"
-            var foo = "{{precio}}"
-            console.log(foo)
-            var zoo = "{{cantidad}}"
-            console.log(zoo)
-            var subtotal = (foo*zoo)
-            console.log(subtotal)
-            suma += (foo*zoo);
-            console.log(subtotal)
-            document.getElementById("{{id}}").innerHTML = subtotal
-            "{{/each}}"
-            console.log(suma)
-            document.getElementById("total").innerHTML = suma
-        </script>
+
+'INSERT INTO detallecompra (
+    ido_d, idp_d, precio_d, cant_d
+) 
+VALUES (
+    ' + lastId + ', ' + id_p + ', ' + precio_d +  ',' + cant_d + '
+)'
