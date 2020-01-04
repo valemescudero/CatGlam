@@ -13,9 +13,9 @@
       <p id="precio">${{precio_p}}</p>
       <p class=" text-left">{{descripcion_p}}</p>
       <div class="row mt-5 justify-content-center">
-        <small id="carritocant" class="form-text">Cantidad:</small>
-        <input type="number" class="form-control mb-3" id="carritocant">
-        <button class="buy btn-negro btn" type="submit"><a href="/add-to-cart/{{id_p}}">Agregar al carrito</a></button>
+          <small id="carritocant" class="form-text">Cantidad:</small>
+          <input class="form-control" name="carritocant" type="number" id="carritocant">
+        <button class="buy btn-negro btn" type="submit" id="btnAdd">Agregar al carrito</button>
       </div>       
     </div>
   </div>
@@ -66,3 +66,10 @@
 
   </div>
 </div>
+
+<script>
+  $('#carritocant').on('click', '#btnAdd', function(){
+  var carritoCant = $('#carritocant').val();
+  console.log(carritoCant);
+  });
+</script>
