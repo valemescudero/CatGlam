@@ -139,8 +139,13 @@ router.get('/', async(req,res,next)=> {
   }
       })
 
-
-
+      router.get('/blog', async(req,res,next)=> {
+        let logger = {
+          "logged" :  req.session.log,
+          };
+          res.render('panelblog', {message : '¡Hola, ' + req.session.nombre + ' (Admin)!', title : 'Cat Glam · Mi Cuenta', fotoperfil: req.session.fotoperfil, logger:logger});
+        });
+  
 
 
 

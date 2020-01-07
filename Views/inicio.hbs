@@ -8,30 +8,25 @@
                 </div>
                 <div class="col-6"></div>
             </div>
-        </div>        
+        </div> 
     <!-- Container Productos -->
-        <div class="container">
-            <div id="partes" class="row mt-5 mb-5">
-                <div class="col-md-4">
-                    <div class="parte embed-responsive embed-responsive-1by1 text-center align-items-center" style="background-image:url(./Images/5.jpg)">
+      <div id="pick" class="mt-3">
+    <div class="pt-1">
+          <h4 class="m-3 mt-5">¡SELECCIÓN DE LA SEMANA! <img class="icon benefit_i" src="https://image.flaticon.com/icons/svg/149/149763.svg"></h4>
+    </div>
+            <div id="partes" class="row no-gutters mt-5 mb-5 text-center bg-light">
+        {{#each ultimosProductos}}
+                <div class="col-md-4 mt-3">
+                    <div class="parte" style="background-image:url({{imagen_p}})">
                         <div class="label">
-                            <a href="categories.html">Aros</a>
+                            <a href="/productos/detalle/{{id_p}}">{{nombre_p}}</a>
                         </div>
                     </div>
                 </div>
-                <div class="col-md-4">
-                        <div class="parte embed-responsive embed-responsive-1by1 text-center align-items-center" style="background-image:url(./Images/6.jpg)">
-                            <div class="label">
-                                <a href="categories.html">Moños</a>
-                            </div>
-                        </div>
-                    </div>
-                <div class="col-md-4">
-                    <div class="parte embed-responsive embed-responsive-1by1 text-center align-items-center" style="background-image:url(./Images/7.jpg)">
-                        <div class="label">
-                            <a href="categories.html">Chokers</a>
-                        </div>
-                    </div>
-                </div>
+        {{/each}}
             </div>
         </div>
+        <!-- Texto Mobile -->
+<div class="text visible-xs gif-mobile text-center" style="position: relative; padding: 10px; background:#00F9AB">
+    <strong>  ENVÍO GRATIS A PARTIR DE $699  </strong>
+  </div>

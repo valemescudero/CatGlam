@@ -65,10 +65,12 @@
           {{/each}}
         </tbody>
         </table>
-          </div><div class="row justify-content-end">
-          <div class="mr-4 mt-3"><span class="lighter-text">Total: $</span><span class="main-color-text"><b id="total"></span></b></div>
+          </div>
+          
+          <div class="row justify-content-end mr-1">
+          <div class="mr-4 mt-3"><span>Total: $</span><span><b id="total"></span></b></div>
         <form action="/compras/addOrder/" method="post">
-    <input type="submit" class="buy btn-negro btn" type="submit" id="btnBuy" name="btnBuy" value="Realizar pedido" />
+    <input type="submit" class="btn-fucsia btn" type="submit" id="btnBuy" name="btnBuy" value="Realizar pedido" />
 </form>
 {{else}}
 <div class="bd-callout bd-callout-info-empty bg-light">
