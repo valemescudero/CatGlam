@@ -4,10 +4,11 @@ const router = express.Router();
 const pool = require('../db/Index');
 
 router.get('/logout', async(req,res,next)=> {
-    req.session.destroy(); // destruye la sesion DEL 
+    req.session.destroy(); // destruye la sesión
     res.redirect('/ingreso');
 })
 
+// Maneja las redirecciones
 router.get('/', async(req,res,next)=> {
     let logger = {
       "logged" :  req.session.log,

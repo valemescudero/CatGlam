@@ -14,8 +14,8 @@
       <p class=" text-left">{{descripcion_p}}</p>
       <div class="row mt-5 justify-content-center">
           <small id="carritocant" class="form-text">Cantidad:</small>
-          <input min="1" max="{{stock_p}}" value="1" class="form-control" name="carritocant" type="number" id="carritoCant" onchange="getU()">
-        <button class="buy btn-negro btn" onclick="redir()" type="submit" id="btnAdd">Agregar al carrito</button>
+          <input min="1" max="{{stock_p}}" value="1" class="form-control" name="carritocant" type="number" id="carritoCant" style="width: 90% !important;">
+        <button class="buy btn-negro btn mt-2" onclick="getU(); redir()" type="submit" id="btnAdd">Agregar al carrito</button>
       </div>       
     </div>
   </div>

@@ -29,6 +29,7 @@ router.post('/', async(req,res,next)=> {
         let permisos = data[0].permisos_u;
         let id = data[0].id_u;
         req.session.nombre = data[0].nombre_u;
+        req.session.fotoperfil = data[0].foto_u;
         console.log(permisos);
         console.log(id);
         if(permisos !== 1) {

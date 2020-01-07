@@ -2,8 +2,15 @@
   <div class="row no-gutters">
     <div id="sidebar" class="gradb col-lg-2 col-md-3">
       <nav id="panelnav">
-      <div id="saludo">{{message}}</div>
-<ul class="nav flex-column">
+        <div class="row mt-2 justify-content-center">
+          <div class="col-12 col-sm-6  col-md-12">
+          <div class="fotoperfil" style="background-image:url({{fotoperfil}})"></div>
+          </div>
+          <div class="col-12 col-sm-6 col-md-12">
+          <div id="saludo">{{message}} <svg onclick="document.getElementById('myModal3').style.display='block'" id="editsvg" width="1rem" height="1rem" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="Capa_1" x="0px" y="0px" width="512" height="512" viewBox="0 0 528.899 528.899" style="enable-background:new 0 0 528.899 528.899;" xml:space="preserve" class=""><g><g>
+	<path d="M328.883,89.125l107.59,107.589l-272.34,272.34L56.604,361.465L328.883,89.125z M518.113,63.177l-47.981-47.981   c-18.543-18.543-48.653-18.543-67.259,0l-45.961,45.961l107.59,107.59l53.611-53.611   C532.495,100.753,532.495,77.559,518.113,63.177z M0.3,512.69c-1.958,8.812,5.998,16.708,14.811,14.565l119.891-29.069   L27.473,390.597L0.3,512.69z" data-original="#000000" class="active-path" data-old_color="#000000" style="fill:#FFFFFF"></path></g></g></svg onclick="document.getElementById('myModal3').style.display='block'">
+          </div>
+            <ul class="nav flex-column">
                     <li class="nav-item">
                         <a class="nav-link" href="/panel">
                             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg>
@@ -34,19 +41,24 @@
               Reportes
             </a>
           </li>
-        </ul>
+            </ul>
+          </div>
+        </div>
       </nav>
     </div>
     <div id="paneltablecontainer" class="col-lg-10 col-md-9 text-center">
       <div id="tablecenter">
         <div class="row no-gutters justify-content-between">
-          <button type="button" onclick="document.getElementById('myModal').style.display='block'" class="btn btn-celeste">+ Agregar producto</button>
+          <div>
+            <button type="button" onclick="document.getElementById('myModal').style.display='block'" class="btn btn-celeste">+ Agregar producto</button>
+            <button type="button" onclick="document.getElementById('myModal2').style.display='block'" class="btn btn-fucsia">+ Añadir Categoría</button>
+          </div>
               <form  class="form-inline my-2 my-lg-0" method="GET" action="">
                 <input class="form-control mr-sm-2" type="text" placeholder="Filtrar" name="text">
                 <button class="btn btn-outline-secondary my-2 my-sm-0" type="submit">Filtrar</button>
               </form>
         </div>
-        <table role="table" class="table table-bordered text-center mt-2">
+        <table role="table" class="table text-center mt-2">
         <thead role="rowgroup" class="bg-light">
           <tr role="row">
 {{!-- If you change the table remember to update the data labels in the CSS file --}}
@@ -63,21 +75,21 @@
         <tbody role="rowgroup">
           {{#each productos}}
           <tr role="row">
-            <td role="cell" style="display: none;">{{id_p}}</td>
-            <td role="cell" contenteditable="true">{{nombre_p}}</td>
-            <td role="cell" contenteditable="true">{{descripcion_p}}</td>
-            <td role="cell">{{nombre_c}}</td>
-            <td role="cell" contenteditable="true">{{precio_p}}</td>
-            <td role="cell" contenteditable="true">{{stock_p}}</td>
-            <td role="cell"><img src="{{imagen_p}}" style="width: 5rem;"></td>
-            <td role="cell"> <!-- BOTÓN --><button type="button" class="btnSave btnfondo btn btn-secondary btn-sm my-0 m-1">Guardar</button>
+            <td class="tdp" role="cell" style="display: none;">{{id_p}}</td c>
+            <td class="tdp" role="cell" contenteditable="true">{{nombre_p}}</td>
+            <td class="tdp" role="cell" contenteditable="true">{{descripcion_p}}</td>
+            <td class="tdp" role="cell">{{nombre_c}}</td>
+            <td class="tdp" role="cell" contenteditable="true">{{precio_p}}</td>
+            <td class="tdp" role="cell" contenteditable="true">{{stock_p}}</td>
+            <td class="tdp" role="cell"><img src="{{imagen_p}}" style="width: 5rem;"></td>
+            <td class="tdp" role="cell"> <!-- BOTÓN --><button type="button" class="btnSave btnfondo btn btn-secondary btn-sm my-0 m-1">Guardar</button>
               <span class="table-remove"><button type="button" class="btnDelete btnborde btn btn-outline-danger btn-sm my-0"><a href="">Eliminar</a></button></span>
             </td>
           </tr>
           {{/each}}
         </tbody>
         </table>
-<!-- The Modal -->
+<!-- The Add Product Modal -->
 <div id="myModal" class="modal">
 
   <!-- Modal content -->
@@ -117,20 +129,32 @@
   </div>
 </div>
 
+
+<!-- The Add Category Modal -->
+<div id="myModal2" class="modal">
+
+  <!-- Modal content-->
+  <div class="modal-content">
+    <span class="close2">&times;</span>
+<form role="form" action="categorias/subir" method="POST">
+  <div class="form-group">
+    <label for="Producto">Nueva categoría: </label>
+    <input class="form-control" name="ncategoria" type="text" id="ncategoria">
+  </div>
+<button type="submit" class="btnSave btn btn-secondary btn-rounded btn-sm my-0 m-1">Guardar</button>    
+    </form>
+  </div>
+</div>
+
 <script>
-// Get the modal
+//Add Product > Get the modal
 var modal = document.getElementById("myModal");
-
-
 // Get the <span> element that closes the modal
 var span = document.getElementsByClassName("close")[0];
-
-
 // When the user clicks on <span> (x), close the modal
 span.onclick = function() {
   modal.style.display = "none";
 }
-
 // When the user clicks anywhere outside of the modal, close it
 window.onclick = function(event) {
   if (event.target == modal) {
@@ -139,6 +163,16 @@ window.onclick = function(event) {
 }
 </script>
 
+<script>
+//Add Category > Get the modal
+var modal2 = document.getElementById("myModal2");
+// Get the <span> element that closes the modal
+var span = document.getElementsByClassName("close2")[0];
+// When the user clicks on <span> (x), close the modal
+span.onclick = function() {
+  modal2.style.display = "none";
+}
+</script>
 
         <script>
           $('.table tbody').on('click', '.btnSave', function(){
@@ -189,3 +223,4 @@ window.onclick = function(event) {
     </div>
   </div>
 </div>
+        {{> profilemodal}}

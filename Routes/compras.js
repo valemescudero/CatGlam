@@ -2,20 +2,24 @@ const express = require('express');
 const router = express.Router();
 const pool = require('../db/Index')
 
-const carritoAux = {
-    '9': { id: '9', nombre: 'Aros Snake', precio: 200, cantidad: 2 },
-    '10': { id: '10', nombre: 'Aros Frutitas', precio: 250, cantidad: 3 }
-  }
+// Tester
+// const carritoAux = {
+//     '9': { id: '9', nombre: 'Aros Snake', precio: 200, cantidad: 2 },
+//     '10': { id: '10', nombre: 'Aros Frutitas', precio: 250, cantidad: 3 }
+//   }
 
 router.post('/addOrder', async (req, res) => {
-var userID = req.body.userId;
-//await pool.query('INSERT INTO ordencompra (idu_o) VALUES (' + userID + ')')
+  
+// Por las relaciones de la bd, primero toma el ID del cliente y crea la orden de compra
+var userID = req.session.idUsuario;
 const lastId = await pool.query('INSERT INTO ordencompra (idu_o) VALUES (' + userID + ')');
-console.log('control');
+console.log('Orden de compra del cliente nº: ');
 console.log(userID);
 
-const carritoArr = (Object.values(carritoAux));
+// Convierte el objeto carrito en array
+const carritoArr = (Object.values(req.session.cart));
 
+// Luego mapea el carrito e inserta los valores en el detalle de compra relacionado al id de orden
 carritoArr.map( async x => {
 var idp_d = x.id;
 var nombre_p = x.nombre;  
@@ -23,23 +27,13 @@ var precio_d = x.precio;
 var cant_d = x.cantidad;
 await pool.query('INSERT INTO detallecompra (ido_d, idp_d, precio_d, cant_d) VALUES('+ lastId.insertId + ', ' + x.id +', ' + x.precio + ', ' + x.cantidad + ')')
 })
-
-res.status(200).json({ 
-    "userID":userID,
-    "lastID": lastId.insertId,
-    "carrito": carritoAux,
-    "carritoArr": (Object.values(carritoAux))
-})
-
-
-//por cada producto que haya en la orden, haces un insert a la db en detalle con el lastID
-// var idp_d = req.body.idpD;
-// var precio_d = req.body.precioD;
-// var cant_d = req.body.cantD;
-// await pool.query('INSERT INTO detallecompra (ido_d, idp_d, precio_d, cant_d) VALUES('+ '')')
-
-
-
+console.log('vaciar');
+delete req.session.cart;
+// Muestra mensaje cuando se finaliza la compra, luego de mostrarlo vuelve a 0
+req.session.success = 1;
+console.log('vaciado');
+console.log(req.session.cart);
+res.redirect('/carrito/');
 });
 
 
