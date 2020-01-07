@@ -10,6 +10,7 @@ router.get('/', async(req,res,next)=> {
       };
       if (req.session.idUsuario) {
       
+        console.log(req.session.idUsuario);
         if (req.session.cart !== undefined) {
       var carrito = req.session.cart;
       console.log(carrito);
@@ -51,5 +52,18 @@ req.session.success = 0;
     res.redirect('/carrito');
 
       });
+
+      
+    // Cambiar foto de perfil
+    router.post('/perfil/subir/',async (req,res) => {
+      console.log("Control");
+      let nuevaFoto = {
+          foto: req.body.nfoto,
+      }
+      req.session.fotoperfil = nuevaFoto.foto;
+      await pool.query('UPDATE usuarios SET foto_u = "' + nuevaFoto.foto + '" WHERE id_u =' + req.session.idUsuario);
+    
+      res.redirect('back');
+    })
 
     module.exports = router;

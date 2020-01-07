@@ -652,6 +652,8 @@ tr:nth-child(even) {
   border-left-color: #d03a29 !important;
 }.bd-callout-info-ok {
   border-left-color: #009a67 !important;
+}.bd-callout-info-empty {
+  border-left-color: #464646 !important;
 }
 .bd-callout {
   padding: 1.25rem;

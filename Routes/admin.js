@@ -62,32 +62,6 @@ router.get('/', async(req,res,next)=> {
       res.redirect('/panel/productos');
     })
     
-    router.post('/categorias/subir/',async (req,res) => {
-      console.log("Control");
-      const categoriaCheck = await pool.query("select id_c from categorias where nombre_c = '"
-      + req.body.ncategoria + "'");
-      if (!categoriaCheck.length == 1) {
-      let nuevaCategoria = {
-          nombre_c: req.body.ncategoria,
-      }
-      console.log(nuevaCategoria.nombre_c);
-      await pool.query('INSERT INTO categorias (nombre_c) VALUES ("'+ nuevaCategoria.nombre_c +'")');
-    }
-      res.redirect('/panel/productos');
-    })
-    
-    router.post('/perfil/subir/',async (req,res) => {
-      console.log("Control");
-      let nuevaFoto = {
-          foto: req.body.nfoto,
-      }
-      req.session.fotoperfil = nuevaFoto.foto;
-      console.log(nuevaFoto.foto);
-      await pool.query('UPDATE usuarios SET foto_u = "' + nuevaFoto.foto + '" WHERE id_u = ' + req.session.idAdmin);
-    
-      res.redirect('back');
-    })
-    
     router.post("/modificar/", async(req, res) => { 
       try {
          const op = await pool.query("UPDATE productos SET nombre_p = \""
@@ -109,6 +83,35 @@ router.get('/', async(req,res,next)=> {
         alert("MAL")
       }
     })
+
+    // Añadir categoría
+    router.post('/categorias/subir/',async (req,res) => {
+      console.log("Control");
+      const categoriaCheck = await pool.query("select id_c from categorias where nombre_c = '"
+      + req.body.ncategoria + "'");
+      if (!categoriaCheck.length == 1) {
+      let nuevaCategoria = {
+          nombre_c: req.body.ncategoria,
+      }
+      console.log(nuevaCategoria.nombre_c);
+      await pool.query('INSERT INTO categorias (nombre_c) VALUES ("'+ nuevaCategoria.nombre_c +'")');
+    }
+      res.redirect('/panel/productos');
+    })
+    
+    // Cambiar foto de perfil
+    router.post('/perfil/subir/',async (req,res) => {
+      console.log("Control");
+      let nuevaFoto = {
+          foto: req.body.nfoto,
+      }
+      req.session.fotoperfil = nuevaFoto.foto;
+      console.log(nuevaFoto.foto);
+      await pool.query('UPDATE usuarios SET foto_u = "' + nuevaFoto.foto + '" WHERE id_u = ' + req.session.idAdmin);
+    
+      res.redirect('back');
+    })
+    
 
     router.get('/clientes', async(req,res,next)=> {
       let logger = {

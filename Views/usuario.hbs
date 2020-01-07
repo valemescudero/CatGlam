@@ -70,7 +70,11 @@
         <form action="/compras/addOrder/" method="post">
     <input type="submit" class="buy btn-negro btn" type="submit" id="btnBuy" name="btnBuy" value="Realizar pedido" />
 </form>
-
+{{else}}
+<div class="bd-callout bd-callout-info-empty bg-light">
+<h4>No hay productos en el carrito</h4>
+<p style="width: 80%; margin: auto auto;"></p>
+</div>
 {{/if}}
 
                 
@@ -113,4 +117,4 @@ function getU() {
 };
  //string template embebe var en string
 </script>
-        {{> profilemodal}}
+        {{> profilemodalU}}
