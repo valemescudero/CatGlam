@@ -1,0 +1,59 @@
+<!-- The Add Category Modal -->
+<div id="myModalSP" class="modal">
+
+  <!-- Modal content-->
+  <div class="modal-content">
+    <span class="closeSP close">&times;</span>
+<form role="form" action="productos/subir" method="POST">
+  <div class="form-group">
+    <label for="Producto">Producto: </label>
+    <input class="form-control" name="producto" type="text" id="Producto">
+  </div>
+  <div class="form-group">
+    <label for="Descripcion">Descripción: </label>
+    <input class="form-control" name="descripcion" type="text" id="Descripcion">
+  </div>
+  <div class="form-group">
+    <label for="Categoria">Categoría: </label>
+    <select class="form-control" name="categoria" type="text" id="Categoria">
+      {{#each categorias}}
+      <option>{{nombre_c}}</option>
+      {{/each}}
+    </select>
+  </div>
+  <div class="form-group">
+    <label for="Precio">Precio: </label>
+    <input class="form-control" name="precio" type="text" id="Precio">
+  </div>
+  <div class="form-group">
+    <label for="Stock">Stock: </label>
+    <input class="form-control" name="stock" type="text" id="Stock">
+  </div>
+  <div class="form-group">
+    <label for="Imagen">Imagen(URL): </label>
+    <input class="form-control" name="imagen" type="text" id="Imagen">
+  </div> 
+<button type="submit" class="btnSave btn btn-secondary btn-rounded btn-sm my-0 m-1">Guardar</button>    
+    </form>
+  </div>
+</div>
+
+
+<script>
+//Add Product > Get the modal
+var modalSP = document.getElementById("myModalSP");
+// Get the <span> element that closes the modal
+var spanSP = document.getElementsByClassName("closeSP")[0];
+// When the user clicks on <span> (x), close the modal
+spanSP.onclick = function(eSP) {
+  modalSP.style.display = "none";
+}
+
+// When the user clicks anywhere outside of the modal, close it
+window.addEventListener('click', function() {
+  if (event.target == modalSP){
+        modalSP.style.display = "none";
+  }
+});
+
+</script>

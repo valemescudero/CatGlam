@@ -8,17 +8,11 @@ router.get('/', async(req,res,next)=> {
       };
 var blogpost = await pool.query('SELECT * FROM blog ORDER BY id_b DESC LIMIT 5')
 
-
-
-
-
-
-
-
       res.render('blog', { title : 'Cat Glam · Novedades', logger:logger, blogpost:blogpost});
 
 
     });
+
 
 
 module.exports = router;

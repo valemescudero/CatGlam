@@ -1,9 +1,9 @@
 const express = require('express');
 const exphbs = require('express-handlebars');
 const session = require('express-session');
+const nodemailer = require("nodemailer");
 const morgan = require('morgan'); // Se utiliza para registrar los detalles de las solicitudes (req) de login
 const bodyParser = require('body-parser');
-const cookieParser = require('cookie-parser');
 
 // Rutas
 const routesHome = require('./Routes/home');
@@ -16,6 +16,7 @@ const routesCarrito = require('./Routes/usuario');
 const routesCart = require('./Routes/cart');
 const routesCompras = require('./Routes/compras');
 const routesBlog = require('./Routes/blog');
+const routesContacto = require('./Routes/contacto');
 const path = require('path');
 
 // Inicialización
@@ -58,5 +59,8 @@ app.use('/carrito', routesCarrito);
 app.use('/cart', routesCart);
 app.use('/compras', routesCompras);
 app.use('/blog', routesBlog);
+app.use('/contacto', routesContacto);
+
+
 
 app.listen(port, () => { console.log('listening on port: '+ port)});

@@ -1,17 +1,30 @@
 <div class="postcontainer bg-light">
     <h4 class="pt-5 mb-5 ml-4">NOVEDADES <img class="icon benefit_i" src="https://image.flaticon.com/icons/svg/149/149763.svg"></h4>
-<div class="row no-gutters justify-content-around pb-3">
+    <div class="row no-gutters justify-content-around pb-3">
+        <div id="posts" class=" col-md-8 col-12">
+            <div class="row no-gutters justify-content-around">
 {{#each blogpost}}
-    <div class="post col-5">
+    <div class="post col-sm-5 col-12">
         <img class="postimg" src="{{imagen_b}}">
-        <div>
+        <div class="mt-2">
             <p>
-            {{texto_b}}
+            {{{texto_b}}}
             </p>
         </div>
     </div>
 {{/each}}
-</div>
+            </div>
+        
+        </div>
+        <div id="about" class="col-md-3 col-12 post">
+            <article>
+             <h2 class="txt1 btn-fucsia p-2">Marca de accesorios autogestivos para todes.</h2>
+             <p><b>CatGLAM</b> nació en 2014 en Lomas de Zamora. Con <mark>bordados, brillos, colores y texturas</mark> confeccionamos todo tipo de accesorios de manera 100% artesanal.
+             Nos apasiona el diseño y tenemos como meta experimentar y generar propuestas diferentes y creativas para que todes puedan mostrar un estilo personal.</p>
+             <p>Tomamos pedidos vía web, redes sociales y whatsapp y realizamos entregas en Lomas de Zamora, Nuñez y Obelisco y envíos a todo el país.</p>
+            </article>
+        </div>
+    </div>
 </div>
 
-
+{{> blogmodal}}

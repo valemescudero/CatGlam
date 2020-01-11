@@ -143,9 +143,48 @@ router.get('/', async(req,res,next)=> {
         let logger = {
           "logged" :  req.session.log,
           };
-          res.render('panelblog', {message : '¡Hola, ' + req.session.nombre + ' (Admin)!', title : 'Cat Glam · Mi Cuenta', fotoperfil: req.session.fotoperfil, logger:logger});
+          if (req.session.idAdmin) {
+          var blogpost = await pool.query('SELECT * FROM blog ORDER BY id_b DESC');          
+          res.render('panelblog', {message : '¡Hola, ' + req.session.nombre + ' (Admin)!', title : 'Cat Glam · Mi Cuenta', fotoperfil: req.session.fotoperfil,blogpost:blogpost, logger:logger});
+          }
+          else
+          {
+          res.redirect('/ingreso');
+      }
         });
   
+    // Subir publicación
+    router.post('/blog/subir',async (req,res) => {
+      console.log("Control");
+      let nuevoPost = {
+          imagen_b: req.body.imagenblog,
+          texto_b: req.body.textoblog
+      }
+      await pool.query('insert into blog set ?', [nuevoPost]);
+     res.redirect('back');
+    })
+    // Editar publicación
+    router.post('/blog/modificar',async (req,res) => {
+      try {
+        console.log(req.body.text);
+      const eb = await pool.query('UPDATE blog SET texto_b = "'+ req.body.text +'" WHERE id_b =' + req.body.id);
+      res.status(200).json()
+   } catch (error) {
+       console.log(error);
+     res.status(400).json({ error: error})
+   }
+ })
+ router.delete("/blog/eliminar/:id", async(req,res) => {
+   console.log("eliminando publicación")
+   try {
+     await pool.query("DELETE FROM blog WHERE id_b = " +req.params.id);
+     console.log("publicación eliminada");
+   } catch (error) {
+     console.log(error)
+   }
+   res.redirect('back');f
+ })
+ 
 
 
 

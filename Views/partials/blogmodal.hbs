@@ -1,0 +1,34 @@
+<!-- The Add Category Modal -->
+<div id="myModalB" class="modal">
+
+  <!-- Modal content-->
+  <div class="modal-content">
+    <span class="closeB close">&times;</span>
+<form role="form" action="blog/subir" method="POST">
+  <div class="form-group">
+    <label for="imagenblog">Imagen de la publicación (URL): </label>
+    <input class="form-control" name="imagenblog" type="text" id="imagenblog">
+    <label for="textoblog">Texto: * </label>
+    <input class="form-control" name="textoblog" type="text" id="textoblog">
+  </div>
+<button type="submit" class="btnSave btn btn-secondary btn-rounded btn-sm my-0 m-1">Guardar</button>    
+    </form>
+  </div>
+</div>
+
+
+<script>
+//Add Category > Get the modal
+var modalB = document.getElementById("myModalB");
+// Get the <span> element that closes the modal
+var spanB = document.getElementsByClassName("closeB")[0];
+// When the user clicks on <span> (x), close the modal
+spanB.onclick = function() {
+  modalB.style.display = "none";
+}
+// When the user clicks anywhere outside of the modal, close it
+window.addEventListener('click', function() {
+  if (event.target == modalB){
+        modalB.style.display = "none";
+  }});
+</script>

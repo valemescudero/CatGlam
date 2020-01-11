@@ -7,8 +7,8 @@
           <div class="fotoperfil" style="background-image:url({{fotoperfil}})"></div>
           </div>
           <div class="col-12 col-sm-6 col-md-12">
-          <div id="saludo">{{message}} <svg onclick="document.getElementById('myModal3').style.display='block'" id="editsvg" width="1rem" height="1rem" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="Capa_1" x="0px" y="0px" width="512" height="512" viewBox="0 0 528.899 528.899" style="enable-background:new 0 0 528.899 528.899;" xml:space="preserve" class=""><g><g>
-	<path d="M328.883,89.125l107.59,107.589l-272.34,272.34L56.604,361.465L328.883,89.125z M518.113,63.177l-47.981-47.981   c-18.543-18.543-48.653-18.543-67.259,0l-45.961,45.961l107.59,107.59l53.611-53.611   C532.495,100.753,532.495,77.559,518.113,63.177z M0.3,512.69c-1.958,8.812,5.998,16.708,14.811,14.565l119.891-29.069   L27.473,390.597L0.3,512.69z" data-original="#000000" class="active-path" data-old_color="#000000" style="fill:#FFFFFF"></path></g></g></svg onclick="document.getElementById('myModal3').style.display='block'">
+          <div id="saludo">{{message}} <svg onclick="document.getElementById('myModalA').style.display='block'" id="editsvg" width="1rem" height="1rem" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="Capa_1" x="0px" y="0px" width="512" height="512" viewBox="0 0 528.899 528.899" style="enable-background:new 0 0 528.899 528.899;" xml:space="preserve" class=""><g><g>
+	<path d="M328.883,89.125l107.59,107.589l-272.34,272.34L56.604,361.465L328.883,89.125z M518.113,63.177l-47.981-47.981   c-18.543-18.543-48.653-18.543-67.259,0l-45.961,45.961l107.59,107.59l53.611-53.611   C532.495,100.753,532.495,77.559,518.113,63.177z M0.3,512.69c-1.958,8.812,5.998,16.708,14.811,14.565l119.891-29.069   L27.473,390.597L0.3,512.69z" data-original="#000000" class="active-path" data-old_color="#000000" style="fill:#FFFFFF"></path></g></g></svg onclick="document.getElementById('myModalA').style.display='block'">
           </div>
             <ul class="nav flex-column">
                     <li class="nav-item">
@@ -21,12 +21,6 @@
             <a class="nav-link active" href="/panel/productos">
               <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z"></path><polyline points="13 2 13 9 20 9"></polyline></svg>
               Productos <span class="sr-only">(current)</span>
-            </a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">
-              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="21" r="1"></circle><circle cx="20" cy="21" r="1"></circle><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path></svg>
-              Pedidos
             </a>
           </li>
           <li class="nav-item">
@@ -50,8 +44,8 @@
       <div id="tablecenter">
         <div class="row no-gutters justify-content-between">
           <div>
-            <button type="button" onclick="document.getElementById('myModal').style.display='block'" class="btn btn-celeste">+ Agregar producto</button>
-            <button type="button" onclick="document.getElementById('myModal2').style.display='block'" class="btn btn-fucsia">+ Añadir Categoría</button>
+            <button type="button" onclick="document.getElementById('myModalSP').style.display='block'" class="btn btn-celeste">+ Agregar producto</button>
+            <button type="button" onclick="document.getElementById('myModalSC').style.display='block'" class="btn btn-fucsia">+ Añadir Categoría</button>
           </div>
               <form  class="form-inline my-2 my-lg-0" method="GET" action="">
                 <input class="form-control mr-sm-2" type="text" placeholder="Filtrar" name="text">
@@ -89,90 +83,8 @@
           {{/each}}
         </tbody>
         </table>
-<!-- The Add Product Modal -->
-<div id="myModal" class="modal">
-
-  <!-- Modal content -->
-  <div class="modal-content">
-    <span class="close">&times;</span>
-<form role="form" action="productos/subir" method="POST">
-  <div class="form-group">
-    <label for="Producto">Producto: </label>
-    <input class="form-control" name="producto" type="text" id="Producto">
-  </div>
-  <div class="form-group">
-    <label for="Descripcion">Descripción: </label>
-    <input class="form-control" name="descripcion" type="text" id="Descripcion">
-  </div>
-  <div class="form-group">
-    <label for="Categoria">Categoría: </label>
-    <select class="form-control" name="categoria" type="text" id="Categoria">
-      {{#each categorias}}
-      <option>{{nombre_c}}</option>
-      {{/each}}
-    </select>
-  </div>
-  <div class="form-group">
-    <label for="Precio">Precio: </label>
-    <input class="form-control" name="precio" type="text" id="Precio">
-  </div>
-  <div class="form-group">
-    <label for="Stock">Stock: </label>
-    <input class="form-control" name="stock" type="text" id="Stock">
-  </div>
-  <div class="form-group">
-    <label for="Imagen">Imagen(URL): </label>
-    <input class="form-control" name="imagen" type="text" id="Imagen">
-  </div> 
-<button type="submit" class="btnSave btn btn-secondary btn-rounded btn-sm my-0 m-1">Guardar</button>    
-    </form>
-  </div>
-</div>
 
 
-<!-- The Add Category Modal -->
-<div id="myModal2" class="modal">
-
-  <!-- Modal content-->
-  <div class="modal-content">
-    <span class="close2">&times;</span>
-<form role="form" action="categorias/subir" method="POST">
-  <div class="form-group">
-    <label for="Producto">Nueva categoría: </label>
-    <input class="form-control" name="ncategoria" type="text" id="ncategoria">
-  </div>
-<button type="submit" class="btnSave btn btn-secondary btn-rounded btn-sm my-0 m-1">Guardar</button>    
-    </form>
-  </div>
-</div>
-
-<script>
-//Add Product > Get the modal
-var modal = document.getElementById("myModal");
-// Get the <span> element that closes the modal
-var span = document.getElementsByClassName("close")[0];
-// When the user clicks on <span> (x), close the modal
-span.onclick = function() {
-  modal.style.display = "none";
-}
-// When the user clicks anywhere outside of the modal, close it
-window.onclick = function(event) {
-  if (event.target == modal) {
-    modal.style.display = "none";
-  }
-}
-</script>
-
-<script>
-//Add Category > Get the modal
-var modal2 = document.getElementById("myModal2");
-// Get the <span> element that closes the modal
-var span = document.getElementsByClassName("close2")[0];
-// When the user clicks on <span> (x), close the modal
-span.onclick = function() {
-  modal2.style.display = "none";
-}
-</script>
 
         <script>
           $('.table tbody').on('click', '.btnSave', function(){
@@ -224,3 +136,5 @@ span.onclick = function() {
   </div>
 </div>
         {{> profilemodalA}}
+        {{> SPmodal}}
+        {{> SCmodal}}

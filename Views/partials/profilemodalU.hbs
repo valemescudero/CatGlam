@@ -1,9 +1,9 @@
 <!-- The Add Category Modal -->
-<div id="myModal3" class="modal">
+<div id="myModalU" class="modal">
 
   <!-- Modal content-->
   <div class="modal-content">
-    <span class="close3">&times;</span>
+    <span class="closeU close">&times;</span>
 <form role="form" action="carrito/perfil/subir" method="POST">
   <div class="form-group">
     <label for="Producto">Nueva foto de perfil (URL): </label>
@@ -17,11 +17,16 @@
 
 <script>
 //Add Category > Get the modal
-var modal3 = document.getElementById("myModal3");
+var modalU = document.getElementById("myModalU");
 // Get the <span> element that closes the modal
-var span = document.getElementsByClassName("close3")[0];
+var span = document.getElementsByClassName("closeU")[0];
 // When the user clicks on <span> (x), close the modal
 span.onclick = function() {
-  modal3.style.display = "none";
+  modalU.style.display = "none";
 }
+// When the user clicks anywhere outside of the modal, close it
+window.addEventListener('click', function() {
+  if (event.target == modalU){
+        modalU.style.display = "none";
+  }});
 </script>
