@@ -1,0 +1,2 @@
+Crear base de datos 'catglam' e importar el archivo dentro de la carpeta db
+Correr con npm run server
