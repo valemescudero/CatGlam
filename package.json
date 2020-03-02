@@ -12,6 +12,7 @@
     "url": "git+https://github.com/evadnemeraki/CatGlam.git"
   },
   "author": "",
+  
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/evadnemeraki/CatGlam/issues"
@@ -34,5 +35,8 @@
   },
   "devDependencies": {
     "nodemon": "^2.0.1"
+  },
+  "engines": {
+    "node": "10.x"
   }
 }

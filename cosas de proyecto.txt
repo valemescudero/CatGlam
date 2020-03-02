@@ -1,0 +1,25 @@
+-- SIENDO que está parado en usuarios --
+router.get('/:id', function()=> {
+    let id = req.params.id //
+})
+
+router.post('/', function() =>{
+    //registro (alta)
+    //envía un mail al usuario con:
+
+}
+usuarios
+id mail password cuenta_confirmada
+1 dile  1234       0
+
+Dentro del mail que se le envía al usuario <a href="http://mipagina.com/confirmar/franco">Confirmar la cuenta</a>
+---- peligroso porque es fácil de adivinar
+entoces se inserta string de uuid en lugar de franco
+unique id para imágenes subidas para que no se repita el nombre??
+
+unique Id /=/ token (library jwt)
+
+
+. Envío de email al registrarse
+. Confirmación de usuario
+. 
