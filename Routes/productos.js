@@ -6,11 +6,11 @@ const pool = require('../db/Index');
 router.get('/:id?', async (req,res) => {
     let logger = {
       "logged" :  req.session.log,
-      };
+      }; 
     const categorias = await pool.query('SELECT id_c, nombre_c FROM categorias INNER JOIN productos ON categorias.id_c = productos.categoria_p GROUP BY id_c');
     let productos;
     if (req.params.id) {
-      productos = await pool.query('select * from productos where categoria_p = ' + req.params.id);
+      productos = await pool.query('select * from productos where' + req.params.id + 'in (nombre_p, descripcion_p, categoria_p)');
     } else {
       productos = await pool.query('select * from productos ORDER BY categoria_p');
     }
